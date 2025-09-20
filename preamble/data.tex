@@ -1,63 +1,62 @@
-%% Thesis type: bachelor, master, doctoral
+%% Type de mémoire : licence, master, doctorat
 \NewExpandableDocumentCommand{\ThesisType}{}{L2 ISTN}
 
-%% Thesis title (exactly as in the formal assignment)
-\NewExpandableDocumentCommand{\ThesisTitle}{}{Titre}
-%% Plaintext version for PDF metadata, uncomment if needed (defauls to \ThesisTitle)
-\NewExpandableDocumentCommand{\ThesisTitlePlaintext}{}{Titre}
-%% Thesis title (if custom formatting is needed for the title page, defauls to \ThesisTitle)
+%% Titre du mémoire (exactement comme dans le sujet officiel)
+\NewExpandableDocumentCommand{\ThesisTitle}{}{Électronique et Télécommunications}
+
+%% Version en texte brut pour les métadonnées PDF
+\NewExpandableDocumentCommand{\ThesisTitlePlaintext}{}{Electronique et Telecommunications}
+
+%% Titre pour la page de garde (formatage personnalisé)
 \NewExpandableDocumentCommand{\ThesisTitleFront}{}{
     \ThesisTitle\\
     {\Huge\color{gray}vPre 0.0.1}
 }
 
-%% Author of the thesis
+%% Auteur du mémoire
 \NewExpandableDocumentCommand{\ThesisAuthor}{}{\textcolor{red}{Alex Videcoq}}
-%% Plaintext version for PDF metadata, uncomment if needed (defauls to \ThesisAuthor)
+%% Version en texte brut pour les métadonnées PDF
 \NewExpandableDocumentCommand{\ThesisAuthorPlaintext}{}{Alex Videcoq}
 
-%% Year when the thesis is submitted
+%% Année de soumission
 \NewDocumentCommand{\YearSubmitted}{}{2025}
-%% Year of the last revision, uncomment if it is different from \YearSubmitted
+%% Année de dernière révision (décommenter si différente de \YearSubmitted)
 % \NewDocumentCommand{\YearRevision}{}{2025}
 
-%% University
-\NewDocumentCommand{\University}{}{Univesite de Rennes}
+%% Université
+\NewDocumentCommand{\University}{}{Université de Rennes}
 
-%% Name of the department or institute, where the work was officially assigned
-%% (according to the Organizational Structure of MFF UK in English,
-%% or a full name of a department outside MFF)
+%% Nom du département ou institut où le travail a été confié
 \NewDocumentCommand{\Department}{}{\textcolor{red}{ISTIC}}
 
-%% Is it a Department (katedra), or an Institute (ústav)?
+%% Type d’unité : Département ou Institut
 \NewDocumentCommand{\DeptType}{}{UFR}
 
-%% Thesis supervisor: name, surname and titles
+%% Directeur de mémoire : nom, prénom et titres
 \NewDocumentCommand{\Supervisor}{}{\textcolor{red}{Prof. John Doe}}
-%% Thesis co-supervisor: name, surname and titles (uncomment if applicable)
+%% Co-directeur de mémoire : nom, prénom et titres (décommenter si applicable)
 % \NewDocumentCommand{\CoSupervisor}{}{Prof. Matthieu Davy}
 
-%% Supervisor's department/institute (again according to Organizational structure of MFF)
+%% Département/Institut du directeur
 \NewDocumentCommand{\SupervisorsDepartment}{}{\textcolor{red}{ISTIC}}
 
-%% Study programme and specialization
-\NewDocumentCommand{\StudyProgramme}{}{\textcolor{red}{L2 ISTN}}
+%% Filière et spécialisation
+\NewDocumentCommand{\StudyProgramme}{}{\textcolor{red}{Notes personnelles}}
 
-%% Abstract (recommended length around 80-200 words; this is not a copy of your thesis assignment!)
+%% Résumé (80-200 mots recommandés)
 \NewDocumentCommand{\Abstract}{}{
-    Lorem Ipsum
+    Principes fondamentaux et avancés de l’électronique et des télécommunications, avec un accent particulier sur la théorie des circuits RF/micro-ondes, la conception de systèmes numériques, les composants hyperfréquences, et les techniques de mesure et de sécurité. Il couvre les lignes de transmission, les guides d’ondes, les amplificateurs opérationnels, les systèmes numériques, ainsi que les applications des micro-ondes dans les communications et la transmission d’énergie sans fil.
 }
 
-%% Subject (short description for PDF metadata)
-\NewExpandableDocumentCommand{\Subject}{}{%
-    Lorem Ipsum
-}
+%% Sujet (courte description pour les métadonnées PDF)
+\NewExpandableDocumentCommand{\Subject}{}{Électronique et Télécommunications, RF/Micro-ondes, Systèmes numériques}
 
-%% Keywords (about 3-7)
+%% Mots-clés (3-7)
 \NewExpandableDocumentCommand{\Keywords}{}{%
-    \textcolor{red}{Mots, cles}
+    \textcolor{red}{RF, micro-ondes, amplificateurs, lignes de transmission, systèmes numériques, sécurité, mesures}
 }
-%% Plaintext version for PDF metadata, uncomment if needed (defauls to \Keywords)
+
+%% Version en texte brut pour les métadonnées PDF
 \NewExpandableDocumentCommand{\KeywordsPlaintext}{}{%
-    Mots, cles
+    RF, micro-ondes, amplificateurs, lignes de transmission, systèmes numériques, sécurité, mesures
 }
