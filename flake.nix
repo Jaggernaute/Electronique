@@ -14,6 +14,7 @@
         gnumake
         sioyek
         inkscape
+        qpdf
       ];
     in
     {

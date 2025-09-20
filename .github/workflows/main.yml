@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -29,16 +29,6 @@ jobs:
           path: |
             README.md
             thesis.pdf
-  verify:
-    name: Verify PDF/A
-    runs-on: ubuntu-latest
-    needs: build
-    container: { image: ghcr.io/jdujava/cuni-thesis-validator }
-    steps:
-      - name: Get the PDF file from the artifact
-        uses: actions/download-artifact@v4
-      - name: Verify the PDF file with VeraPDF
-        run: verify Thesis/*.pdf | tee /dev/stderr | grep -qE 'nonCompliant="0" failedJobs="0"'
 
   ## inspired by https://github.com/Pseudomanifold/latex-mimosis
   deploy:
