@@ -235,9 +235,8 @@ Leur valeur est souvent indiquée par un code de couleurs :
         \caption[Pont diviseur de tension.]{
         Pont diviseur de tension.\\La tension de sortie \(V_{out}\) est une
         fraction de la tension d’entrée \(V_{in}\), déterminée par les valeurs
-        des résistances \(R_1\) et \(R_2\)~:
-        \vspace{1ex}
-
+        des résistances \(R_1\) et \(R_2\)~:\\
+        \vspace{\baselineskip}
         \(V_{out} = V_{in}\cdot\dfrac{R_2}{R_1 + R_2}\)
         }%
         \label{fig:voltage-divider}%
@@ -302,6 +301,7 @@ Les types de condensateurs courants incluent :
     Association en série de condensateurs.\\
     L’inverse de la capacité équivalente est la somme des inverses des capacités individuelles
     ~:\\
+    \vspace{\baselineskip}
     \(\dfrac{1}{C_{eq}} = \dfrac{1}{C_1} + \dfrac{1}{C_2}\)}
 \end{figure}
 
@@ -371,9 +371,40 @@ On distingue principalement :
 
 Les transistors sont utilisés dans les amplificateurs,
 les circuits logiques, les régulateurs, et constituent les briques de base des processeurs.
+
 \section{Lois de Kirchhoff} \label{subsec:kirchhoff}
-\subsection{Loi des nœuds} \label{subsec:noeuds}
+Les lois de Kirchhoff permettent d’analyser les circuits électriques en exprimant
+des relations fondamentales entre tensions et courants. Elles sont au nombre de deux :
+la loi des nœuds (ou loi des courants) et la loi des mailles (ou loi des tensions).
+\subsection{Loi des n{\oe}uds} \label{subsec:noeuds}
+\begin{figure}[H]
+    \centering
+    \fcapside[\FBwidth]{%
+        \caption[Loi des n{\oe}uds.]{
+            La somme des courants entrants dans un n{\oe}ud est égale à la somme des courants sortants ou autrement dit,
+            la somme totale des courants est \'egale \`a 0.\\
+            Ici~: \(I_1+I_4=I_3+I_2\), ou \(\displaystyle\sum_{i=1}^nI_i=0\)\\
+            \vspace{\baselineskip}
+            Mathématiquement~: \(\displaystyle\sum I_{in} = \displaystyle\sum I_{out}\)
+        }%
+        \label{fig:kirchhoff-current}%
+    }{\includegraphics[width=0.4\textwidth]{kirchhoff-current.pdf}}%
+\end{figure}
 
 \subsection{Loi des mailles} \label{subsec:mailles}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kirchhoff-voltage.pdf}
+    \caption[Loi des mailles.]{
+        La somme algébrique des tensions dans une maille fermée est nulle.\\
+        Ici~: \(E+U_{ab}+U_{bc}+U_{cd}=0\), ou \(\displaystyle\sum_{i=1}^nU_i=0\)\\
+        \vspace{\baselineskip}
+        Mathématiquement~: \(\displaystyle\sum U_{rise} = \displaystyle\sum U_{drop}\)
+    }
+\end{figure}
+\begin{Todo}
+	Aborder la deriuvation des lois de Kirchhoff \`a partir des lois de Maxwell.
+	\[\sum_i V_i = - \sum_i \int_{\mathcal{P}_i}\mathbf{E}\cdot\mathrm{d}\mathbf{l} = \oint\mathbf{E}\cdot\mathrm{d}\mathbf{l} = 0\]
+\end{Todo}
 
 \section{Théorèmes de Norton et de Thévenin} \label{subsec:norton_thevenin}
