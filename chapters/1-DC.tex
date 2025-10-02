@@ -532,10 +532,23 @@ U_{c} = I_{n} \cdot \frac{R_{n} \cdot R_{c}}{R_{n} + R_{c}} = 1.33\unit{\ampere}
 \end{figure}
 
 \subsection{Relation entre Thévenin et Norton}
-\begin{Todo}
-il est souvent pratique de passer d'une représentation de Thévenin à une
-représentation de Norton, et vice-versa, les deux représentations sont
-strictement équivalentes.3
 
-\href{https://moodle.insa-toulouse.fr/pluginfile.php/25823/mod_resource/content/1/Fiche_cours_Norton_V1.pdf}{https:\//moodle.insa-toulouse.fr\/Fiche\_cours\_Thévenin\_V1.pdf}
-\end{Todo}
+Il est souvent pratique de passer d'une représentation de Thévenin à une
+représentation de Norton, et vice-versa, les deux représentations sont
+strictement équivalentes. Voici les relations entre les paramètres des deux
+modèles :
+\begin{align*}
+  E_{th} & = I_{n} \cdot R_{n} \\
+  I_{n} & = \frac{E_{th}}{R_{th}} \\
+  R_{th} & = R_{n}
+\end{align*}
+
+\begin{Note}
+	Points clés des théorèmes de Thévenin et Norton :
+    \begin{enumerate}
+        \item Ils permettent de simplifier des circuits complexes en modèles équivalents plus simples.
+        \item Le théorème de Thévenin utilise une source de tension en série avec une résistance.
+        \item Le théorème de Norton utilise une source de courant en parallèle avec une résistance.
+        \item Les deux modèles sont équivalents et peuvent être convertis l’un en l’autre.
+    \end{enumerate}
+\end{Note}
