@@ -166,7 +166,7 @@ où \(R\) est exprimée en ohms (\unit{\ohm}).
     \includegraphics[width=0.6\textwidth]{ohms-law-cartoon}
     \caption{
         \centering
-        R\'esistance \'electrique expliqu\'ee par un cowboy.\\
+        R\'esistance \'electrique expliqu\'ee par un cowboy. \\\emph{puisque Defred ne veut pas de mes poneys ...}\\
         \textbf{Source~:}
         \href{https://build-electronic-circuits.com/ohms-law}{build-electronic-circuits.com}
     }
@@ -341,8 +341,8 @@ d’un interrupteur dirigé.
     \centering
     \includegraphics[width=0.5\textwidth]{diodes.pdf}
     \caption{\newline
-        \textbf{a)} Symbole d’une diode.\\
-        \textbf{b)} Symbole d’une diode Zener.
+        \fakecustommacro{a} Symbole d’une diode.\\
+        \fakecustommacro{b} Symbole d’une diode Zener.
     }
 \end{figure}
 Les applications courantes impliquent le redressement dans les alimentations, la protection contre l’inversion de polarité
@@ -364,8 +364,8 @@ On distingue principalement :
     \centering
     \includegraphics[width=0.6\textwidth]{transistors.pdf}
     \caption{\centering\newline
-        \textbf{a)} Symbole d’un transistor NPN (BJT).\\
-        \textbf{b)} Symbole d’un transistor N-channel (MOSFET).
+        \fakecustommacro{a} Symbole d’un transistor NPN (BJT).\\
+        \fakecustommacro{b} Symbole d’un transistor N-channel (MOSFET).
     }
 \end{figure}
 
@@ -401,10 +401,141 @@ la loi des nœuds (ou loi des courants) et la loi des mailles (ou loi des tensio
         \vspace{\baselineskip}
         Mathématiquement~: \(\displaystyle\sum U_{rise} = \displaystyle\sum U_{drop}\)
     }
+    \label{fig:kirchhoff-voltage}%
 \end{figure}
 \begin{Todo}
-	Aborder la deriuvation des lois de Kirchhoff \`a partir des lois de Maxwell.
+	Aborder la derivation des lois de Kirchhoff \`a partir des lois de Maxwell.
 	\[\sum_i V_i = - \sum_i \int_{\mathcal{P}_i}\mathbf{E}\cdot\mathrm{d}\mathbf{l} = \oint\mathbf{E}\cdot\mathrm{d}\mathbf{l} = 0\]
 \end{Todo}
 
-\section{Théorèmes de Norton et de Thévenin} \label{subsec:norton_thevenin}
+\section{Théorèmes d'équivalence : Thévenin et Norton} \label{subsec:thevenin_norton}
+
+Les théorèmes de Thévenin et de Norton permettent de simplifier des circuits
+complexes en modèles équivalents plus faciles à analyser. Ils sont très utiles
+pour calculer rapidement les tensions et courants vus par une charge.
+
+\subsection{Théorème de Thévenin}
+
+Tout circuit linéaire à deux bornes peut être remplacé par une source de tension
+unique \(E_{th}\) en série avec une résistance équivalente \(R_{th}\).
+
+Prenons un circuit plut\^ot simple\footnote{Tir\'e du cours de Didier Villers},
+avec une source de tension et deux r\'esistances, alimentant une charge \(C\) :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{thevenin/1-Thevenin.pdf}
+    \caption{Circuit simple avec une source de tension et deux r\'esistances.}
+\end{figure}s
+Ici \(E=5V\) et \(R_1=1\unit{\kilo\ohm}\), \(R_2=1\unit{\kilo\ohm}\).\\
+
+On commence d'abord par ouvrir le circuit pour mesurer la tension à vide \(E_{th}\) :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{thevenin/2-Thevenin.pdf}
+    \caption{Ouverture du circuit pour mesurer la tension à vide \(E_{th}\).}
+\end{figure}
+\(E_{th}\) se calcule facilement avec le pont diviseur de tension :
+\[
+E_{th} = E \cdot \frac{R_2}{R_1+R_2} = 5\unit{\volt} \cdot \frac{1\unit{\kilo\ohm}}{1\unit{\kilo\ohm}+1\unit{\kilo\ohm}} = 2.5\unit{\volt}
+\]
+
+Ensuite, on remplace la source de tension par un court-circuit et on calcule la
+résistance équivalente \(R_{th}\) vue des bornes de la charge \(C\) :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{thevenin/2-5Thevenin.pdf}
+    \caption{Remplacement de la source de tension par un court-circuit pour calculer \(R_{th}\).}
+\end{figure}
+\(R_{th}\) se calcule facilement avec la formule des résistances en parallèle :
+\[
+R_{th} = \frac{R_1 \cdot R_2}{R_1 + R_2} = \frac{1\unit{\kilo\ohm} \cdot 1\unit{\kilo\ohm}}{1\unit{\kilo\ohm} + 1\unit{\kilo\ohm}} = 500\unit{\ohm}
+\]
+On peut maintenant dessiner le circuit équivalent de Thévenin :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{thevenin/3-Thevenin.pdf}
+    \caption{Circuit équivalent de Thévenin.}
+    \label{fig:thevenin-equivalent}
+\end{figure}
+En prenant \(R_c=500\unit{\ohm}\).\\
+On peut facilement calculer la tension \(U_{c}\) aux bornes de la charge \(C\) avec le pont diviseur de tension :
+\[
+U_{c} = E_{th} \cdot \frac{R_c}{R_{th} + R_c} = 2.5\unit{\volt} \cdot \frac{500\unit{\ohm}}{500\unit{\ohm} + 500\unit{\ohm}} = 1.25\unit{\volt}
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{thevenin/4-Thevenin.pdf}
+    \caption{Calcul de la tension \(U_{c}\) aux bornes de la charge \(C\).}
+\end{figure}
+
+
+
+\subsection{Théorème de Norton}
+
+Tout circuit linéaire à deux bornes peut être remplacé par une source de courant
+unique \(I_{n}\) en parallèle avec une résistance équivalente \(R_{n}\). Il permet
+de simplifier l’analyse des circuits en remplaçant des réseaux complexes de r\'esistances
+invariantes dans le temps par une source de courant et une résistance équivalente.
+
+Prenons un circuit plut\^ot simple\footnote{Tir\'e du cours de Didier Villers}, avec une source de courant et deux r\'esistances
+en s\'erie, alimentant une charge \(C\) :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{norton/1-Norton.pdf}
+    \caption{Circuit simple avec une source de courant et deux r\'esistances en s\'erie.}
+\end{figure}
+
+On commence d'abord par court-circuiter la charge \(C\) pour mesurer le courant de court-circuit \(I_{n}\) :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{norton/2-Norton.pdf}
+    \caption{Court-circuit de la charge \(C\) pour mesurer le courant de court-circuit \(I_{n}\).}
+\end{figure}
+
+\(I_{n}\) se calcule facilement avec le pont diviseur de courant :
+\[
+I_{n} = I \cdot \frac{R_{2}}{R_{1}+R_{2}} = 2\unit{\ampere} \cdot \frac{10\unit{\ohm}}{10\unit{\ohm}+15\unit{\ohm}} = 1.33\unit{\ampere}
+\]
+
+Ensuite, on remplace la source de courant par un circuit ouvert et on calcule la
+résistance équivalente \(R_{n}\) vue des bornes de la charge \(C\) :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{norton/2-5Norton.pdf}
+    \caption{Remplacement de la source de courant par un circuit ouvert pour calculer \(R_{n}\).}
+\end{figure}
+
+\(R_{n}\) se calcule facilement avec la formule des résistances en série :
+\[
+R_{n} = R_{1} + R_{2} = 10\unit{\ohm} + 15\unit{\ohm} = 25\unit{\ohm}
+\]
+
+On peut maintenant dessiner le circuit équivalent de Norton :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{norton/3-Norton.pdf}
+    \caption{Circuit équivalent de Norton.}
+    \label{fig:norton-equivalent}
+\end{figure}
+En prenant \(R_c=500\unit{\ohm}\).\\
+On peut facilement calculer la tension \(U_{c}\) aux bornes de la charge \(C\) avec le pont diviseur de tension :
+\[
+U_{c} = I_{n} \cdot \frac{R_{n} \cdot R_{c}}{R_{n} + R_{c}} = 1.33\unit{\ampere} \cdot \frac{15\unit{\ohm} \cdot 500\unit{\ohm}}{15\unit{\ohm} + 500\unit{\ohm}} = 19.37\unit{\volt}
+\]
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=0.6\textwidth]{norton/4-Norton.pdf}
+    \caption{Calcul de la tension \(U_{c}\) aux bornes de la charge \(C\).}
+\end{figure}
+
+\subsection{Relation entre Thévenin et Norton}
+\begin{Todo}
+il est souvent pratique de passer d'une représentation de Thévenin à une
+représentation de Norton, et vice-versa, les deux représentations sont
+strictement équivalentes.3
+
+\href{https://moodle.insa-toulouse.fr/pluginfile.php/25823/mod_resource/content/1/Fiche_cours_Norton_V1.pdf}{https:\//moodle.insa-toulouse.fr\/Fiche\_cours\_Thévenin\_V1.pdf}
+\end{Todo}
