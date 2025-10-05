@@ -1,7 +1,7 @@
 \chapter{Courant Continu} \label{subsec:dc_circuit_theory}
-La théorie des circuits en courant continu (DC) pose les bases de l’électronique en
-décrivant le comportement des tensions et courants statiques (invariants dans le temps)
-dans des boucles fermées.\\
+La th\'eorie des circuits en courant continu (DC) pose les bases de l’\'electronique en
+d\'ecrivant le comportement des tensions et courants statiques (invariants dans le temps)
+dans des boucles ferm\'ees.\\
 
 \begin{figure}[!h]
   \centering
@@ -9,26 +9,26 @@ dans des boucles fermées.\\
   \caption{Le flux conventionnel du courant, de \(+\) vers --}
 \end{figure}
 
-\section{Les unités traitées} \label{subsec:units}
-Avant d’aborder les circuits et les composants, il est important de définir
-les \textit{unités fondamentales} qui constituent le langage de l’électronique.
-À la base se trouve la \textbf{charge électrique}, la grandeur fondamentale
-qui sous-tend toutes les interactions électriques. De la charge découle le \textbf{courant
-électrique}, le flux de charges à travers un conducteur, et la \textbf{tension},
-la différence de potentiel qui provoque ce flux. Les matériaux s’opposent au
-mouvement des charges via leur \textbf{résistance}, tandis que les notions
-d’\textbf{énergie} et de \textbf{puissance} permettent de décrire comment les circuits
-stockent et délivrent un travail utile. Ensemble, ces unités établissent le
-cadre à travers lequel nous mesurons et analysons les phénomènes électriques.\par
+\section{Les unit\'es trait\'ees} \label{subsec:units}
+Avant d’aborder les circuits et les composants, il est important de d\'efinir
+les \textit{unit\'es fondamentales} qui constituent le langage de l’\'electronique.
+À la base se trouve la \textbf{charge \'electrique}, la grandeur fondamentale
+qui sous-tend toutes les interactions \'electriques. De la charge d\'ecoule le \textbf{courant
+\'electrique}, le flux de charges à travers un conducteur, et la \textbf{tension},
+la diff\'erence de potentiel qui provoque ce flux. Les mat\'eriaux s’opposent au
+mouvement des charges via leur \textbf{r\'esistance}, tandis que les notions
+d’\textbf{\'energie} et de \textbf{puissance} permettent de d\'ecrire comment les circuits
+stockent et d\'elivrent un travail utile. Ensemble, ces unit\'es \'etablissent le
+cadre à travers lequel nous mesurons et analysons les ph\'enom\`enes \'electriques.\par
 \vspace{\baselineskip}
-\subsection{Charge électrique}\label{subsec:electric_charge}
-La charge électrique est une propriété fondamentale de la matière ; elle permet
-les interactions via les champs électromagnétiques. Elle se quantifie en \textbf{coulombs
-(\unit{\coulomb})}. Il existe deux types de charges électriques, qualifiées de
-positive et négative. Les charges de même signe se repoussent, tandis que les charges
-de signes opposés s’attirent. Dans la matière ordinaire, le total des charges
-positives et négatives est équilibré, une condition appelée neutralité électrique.
-Les électrons (--) et les protons (\(+\)) sont les principaux porteurs de charge électrique.
+\subsection{Charge \'electrique}\label{subsec:electric_charge}
+La charge \'electrique est une propri\'et\'e fondamentale de la mati\`ere ; elle permet
+les interactions via les champs \'electromagn\'etiques. Elle se quantifie en \textbf{coulombs
+(\unit{\coulomb})}. Il existe deux types de charges \'electriques, qualifi\'ees de
+positive et n\'egative. Les charges de m\^eme signe se repoussent, tandis que les charges
+de signes oppos\'es s’attirent. Dans la mati\`ere ordinaire, le total des charges
+positives et n\'egatives est \'equilibr\'e, une condition appel\'ee neutralit\'e \'electrique.
+Les \'electrons (--) et les protons (\(+\)) sont les principaux porteurs de charge \'electrique.
 
 \begin{figure}[H]
   \centering
@@ -45,49 +45,49 @@ Les électrons (--) et les protons (\(+\)) sont les principaux porteurs de charg
 
     \foreach \theta in {90, 270}
     \draw[fill=blue] (\theta:2) circle (0.1);
-    \node[below=1em] at (0, -2) {Modèle de Bohr d'un atome};
+    \node[below=1em] at (0, -2) {Mod\`ele de Bohr d'un atome};
   \end{tikzpicture}
 \end{figure}
 
-Dans les contextes industriels et d’ingénierie, l’ampère-heure (Ah) --et ses
-sous-multiples-- est couramment utilisé à la place du coulomb, notamment pour
-indiquer la capacité d’une batterie, auquel cas :
+Dans les contextes industriels et d’ing\'enierie, l’amp\`ere-heure (Ah) --et ses
+sous-multiples-- est couramment utilis\'e à la place du coulomb, notamment pour
+indiquer la capacit\'e d’une batterie, auquel cas :
 \[
   1~\unit{\ampere\hour} = 3\,600~\unit{\coulomb}.
 \]
-Cette unité permet d’estimer facilement combien de temps une batterie peut
-fournir un courant donné :
+Cette unit\'e permet d’estimer facilement combien de temps une batterie peut
+fournir un courant donn\'e :
 \begin{example}:\newline
 Une batterie de 30\unit{\ampere\hour}
-délivrant 1\unit{\ampere} durerait théoriquement 30\unit{\hour} (ou 15\unit{\hour} à
+d\'elivrant 1\unit{\ampere} durerait th\'eoriquement 30\unit{\hour} (ou 15\unit{\hour} à
 2\unit{\ampere}), et ainsi de suite.
 \end{example}
 \begin{Note}
-\textbf{Points clés de la charge électrique (loi de Coulomb) :}
+\textbf{Points cl\'es de la charge \'electrique (loi de Coulomb) :}
 \begin{enumerate}
-  \item Il existe deux types de charge : positive et négative.
-  \item Les charges de même type se repoussent mutuellement.
-  \item Les charges de types opposés s’attirent mutuellement.
+  \item Il existe deux types de charge : positive et n\'egative.
+  \item Les charges de m\^eme type se repoussent mutuellement.
+  \item Les charges de types oppos\'es s’attirent mutuellement.
 \end{enumerate}
 \end{Note}
 
-\subsection{Intensité du courant} \label{subsec:current}
+\subsection{Intensit\'e du courant} \label{subsec:current}
 
 \begin{Note}
-	La notion de courant alternatif sera abordée dans la section (Work In Progress) \Cref{subsec:ac_circuit_theory}.
+	La notion de courant alternatif sera abord\'ee dans la section (Work In Progress) \Cref{subsec:ac_circuit_theory}.
 \end{Note}
 
-Un courant électrique est le mouvement collectif des porteurs de charge —
-typiquement des électrons — à travers un milieu conducteur, entraîné par
-la force électromagnétique.
-Un courant de 1 ampère correspond au passage d’une charge de \textbf{1 coulomb}
+Un courant \'electrique est le mouvement collectif des porteurs de charge —
+typiquement des \'electrons — à travers un milieu conducteur, entraîn\'e par
+la force \'electromagn\'etique.
+Un courant de 1 amp\`ere correspond au passage d’une charge de \textbf{1 coulomb}
 par seconde à travers une section de conducteur :
 \[
   I = \frac{Q}{t}
 \]
 où :
 \begin{itemize}
-  \item \(I\) est le courant électrique (en ampères),
+  \item \(I\) est le courant \'electrique (en amp\`eres),
   \item \(Q\) est la charge (en coulombs),
   \item \(t\) est le temps (en secondes).
 \end{itemize}
@@ -97,7 +97,7 @@ où :
     \caption{Flux de courant dans un conducteur}
 \end{figure}
 \begin{Todo}
-	Aborder la notion de densité de courant. Peut-\^etre dans une section li\'ee \`a l'\'electromagn\'etisme.
+	Aborder la notion de densit\'e de courant. Peut-\^etre dans une section li\'ee \`a l'\'electromagn\'etisme.
 	\[
 	\vec{j}_S=\int_0^e\vec{j}_S\cdot\vec{dl}
 	\]
@@ -105,31 +105,31 @@ où :
 
 \begin{Note}
 \vspace{\baselineskip}
-\textbf{Points clés de l’intensité :}
+\textbf{Points cl\'es de l’intensit\'e :}
 \begin{enumerate}
-  \item Elle traduit la vitesse de déplacement des charges dans un conducteur.
-  \item Elle est directement liée à la charge et au temps (\(I = Q/t\)).
-  \item Elle constitue, avec la tension, la base du calcul de la puissance électrique (\(P = U \cdot I\)).
+  \item Elle traduit la vitesse de d\'eplacement des charges dans un conducteur.
+  \item Elle est directement li\'ee à la charge et au temps (\(I = Q/t\)).
+  \item Elle constitue, avec la tension, la base du calcul de la puissance \'electrique (\(P = U \cdot I\)).
 \end{enumerate}
 \end{Note}
 
-\subsection{La tension électrique}
+\subsection{La tension \'electrique}
 \begin{Note}
-	La notion de courant alternatif sera abordée dans la section (Work In Progress) \Cref{subsec:ac_circuit_theory}.
+	La notion de courant alternatif sera abord\'ee dans la section (Work In Progress) \Cref{subsec:ac_circuit_theory}.
 \end{Note}
 
-La \textbf{tension électrique} (ou différence de potentiel) est la cause
-qui met en mouvement les charges électriques dans un circuit. Elle
-correspond au travail nécessaire pour déplacer une charge électrique
+La \textbf{tension \'electrique} (ou diff\'erence de potentiel) est la cause
+qui met en mouvement les charges \'electriques dans un circuit. Elle
+correspond au travail n\'ecessaire pour d\'eplacer une charge \'electrique
 unitaire entre deux points. Elle se mesure en \textbf{volts
 (\unit{\volt})}.
 
-Mathématiquement, la tension est définie comme :
+Math\'ematiquement, la tension est d\'efinie comme :
 \[
   U = \frac{W}{Q}
 \]
 où \(U\) est la tension en volts, \(W\) le travail en joules, et \(Q\) la charge
-en coulombs. Ainsi, un volt équivaut à un joule par coulomb :
+en coulombs. Ainsi, un volt \'equivaut à un joule par coulomb :
 \[
 1V=1\frac{J}{C}
 \]
@@ -137,29 +137,29 @@ en coulombs. Ainsi, un volt équivaut à un joule par coulomb :
 % \begin{figure}[!h]
 %   \centering
 %   \conditionalincludegraphics{src/assets/voltage}{true}{0.5}
-%   \caption{Représentation d’une différence de potentiel entre deux points}
+%   \caption{Repr\'esentation d’une diff\'erence de potentiel entre deux points}
 % \end{figure}
 
 \vspace{\baselineskip}
 \begin{Note}
-\textbf{Points clés de la tension :}
+\textbf{Points cl\'es de la tension :}
 \begin{enumerate}
-  \item Elle est mesurée entre deux points (différence de potentiel).
-  \item Elle constitue la “force motrice” des circuits électriques.
-  \item Son unité est le volt, équivalent à un joule par coulomb.
+  \item Elle est mesur\'ee entre deux points (diff\'erence de potentiel).
+  \item Elle constitue la “force motrice” des circuits \'electriques.
+  \item Son unit\'e est le volt, \'equivalent à un joule par coulomb.
 \end{enumerate}
 \end{Note}
 
 
 \section{Composants de base} \label{subsec:basic_components}
-\subsection{Résistances} \label{subsec:resistors}
-Une résistance est un composant passif qui limite l’intensité du courant
-et transforme une partie de l’énergie électrique en chaleur.
-Sa relation fondamentale est donnée par la loi d’Ohm :
+\subsection{R\'esistances} \label{subsec:resistors}
+Une r\'esistance est un composant passif qui limite l’intensit\'e du courant
+et transforme une partie de l’\'energie \'electrique en chaleur.
+Sa relation fondamentale est donn\'ee par la loi d’Ohm :
 \[
 U = R \cdot I
 \]
-où \(R\) est exprimée en ohms (\unit{\ohm}).
+où \(R\) est exprim\'ee en ohms (\unit{\ohm}).
 
 \begin{figure}[H]
     \centering
@@ -174,20 +174,20 @@ où \(R\) est exprimée en ohms (\unit{\ohm}).
 \end{figure}
 
 
-\textbf{Rôle principal :} les résistances servent à fixer des tensions, limiter
-le courant dans des composants sensibles (par exemple une LED), ou réaliser
+\textbf{Rôle principal :} les r\'esistances servent à fixer des tensions, limiter
+le courant dans des composants sensibles (par exemple une LED), ou r\'ealiser
 des ponts diviseurs de tension \Cref{fig:voltage-divider}. Elles existent en version fixe (valeur constante)
-ou variable (potentiomètres, rhéostats).
+ou variable (potentiom\`etres, rh\'eostats).
 
-Leur valeur est souvent indiquée par un code de couleurs :
+Leur valeur est souvent indiqu\'ee par un code de couleurs :
 
 \begin{table}[H]
 \centering
-\caption{Code des couleurs pour les résistances (4 bandes)}
+\caption{Code des couleurs pour les r\'esistances (4 bandes)}
 \label{tab:resistor_colors}
 \begin{tabular}{|l|c|c|c|r|}
 \hline
-\textbf{Couleur} & \textbf{Chiffre} & \textbf{Multiplicateur} & \textbf{Tolérance} & \textbf{Exemple} \\
+\textbf{Couleur} & \textbf{Chiffre} & \textbf{Multiplicateur} & \textbf{Tol\'erance} & \textbf{Exemple} \\
 \hline
 \begin{tikzpicture}\fill[black] (0,0) rectangle (0.4,0.4); \end{tikzpicture} Noir & 0 & $10^0$ & - & \si{10\ohm} \\
 \begin{tikzpicture}\fill[brown] (0,0) rectangle (0.4,0.4); \end{tikzpicture} Marron & 1 & $10^1$ & ±1\% & \si{10\ohm} \\
@@ -205,22 +205,22 @@ Leur valeur est souvent indiquée par un code de couleurs :
 \end{tabular}
 \end{table}
 
-\textbf{Association en série :}
+\textbf{Association en s\'erie :}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{resistor-series.pdf}
     \caption{\centering
-    Association en série de résistances.\\
-    La résistance équivalente est la somme des résistances individuelles~:\\
+    Association en s\'erie de r\'esistances.\\
+    La r\'esistance \'equivalente est la somme des r\'esistances individuelles~:\\
     \(R_{eq} = R_1 + R_2\).}
 \end{figure}
 
-\textbf{Association en parallèle :}
+\textbf{Association en parall\`ele :}
 \begin{figure}[H]
     \fcapside[\FBwidth]{%
         \caption[R\'esistances en parall\`ele.]{
-        Association en parallèle de résistances.\\
-        L’inverse de la résistance équivalente est la somme des inverses des résistances individuelles~:
+        Association en parall\`ele de r\'esistances.\\
+        L’inverse de la r\'esistance \'equivalente est la somme des inverses des r\'esistances individuelles~:
         \vspace{1ex}
 
         \(\dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2}\).
@@ -234,8 +234,8 @@ Leur valeur est souvent indiquée par un code de couleurs :
     \fcapside[\FBwidth]{%
         \caption[Pont diviseur de tension.]{
         Pont diviseur de tension.\\La tension de sortie \(V_{out}\) est une
-        fraction de la tension d’entrée \(V_{in}\), déterminée par les valeurs
-        des résistances \(R_1\) et \(R_2\)~:\\
+        fraction de la tension d’entr\'ee \(V_{in}\), d\'etermin\'ee par les valeurs
+        des r\'esistances \(R_1\) et \(R_2\)~:\\
         \vspace{\baselineskip}
         \(V_{out} = V_{in}\cdot\dfrac{R_2}{R_1 + R_2}\)
         }%
@@ -244,99 +244,99 @@ Leur valeur est souvent indiquée par un code de couleurs :
 \end{figure}
 
 
-\textbf{Effet Joule :} lorsqu’un courant traverse une résistance, l’énergie
-électrique est dissipée sous forme de chaleur. La puissance thermique dégagée
-est donnée par :
+\textbf{Effet Joule :} lorsqu’un courant traverse une r\'esistance, l’\'energie
+\'electrique est dissip\'ee sous forme de chaleur. La puissance thermique d\'egag\'ee
+est donn\'ee par :
 \[
 P = U \cdot I = R \cdot I^2 = \frac{U^2}{R}.
 \]
-Cet échauffement, appelé \emph{effet Joule}, peut être utile (ex. : radiateurs,
-fils chauffants) ou problématique (surchauffe des composants, pertes énergétiques).
-Les résistances sont donc conçues avec une puissance nominale (en watts, \unit{\watt})
-qu’il ne faut pas dépasser pour éviter leur destruction.
+Cet \'echauffement, appel\'e \emph{effet Joule}, peut \^etre utile (ex. : radiateurs,
+fils chauffants) ou probl\'ematique (surchauffe des composants, pertes \'energ\'etiques).
+Les r\'esistances sont donc conçues avec une puissance nominale (en watts, \unit{\watt})
+qu’il ne faut pas d\'epasser pour \'eviter leur destruction.
 
-En pratique, les résistances existent sous différentes formes :
-à couche carbone, à film métallique, bobinées ou intégrées dans des circuits imprimés.
-Leur choix dépend à la fois de leur valeur, de leur tolérance et de leur puissance maximale.
+En pratique, les r\'esistances existent sous diff\'erentes formes :
+à couche carbone, à film m\'etallique, bobin\'ees ou int\'egr\'ees dans des circuits imprim\'es.
+Leur choix d\'epend à la fois de leur valeur, de leur tol\'erance et de leur puissance maximale.
 
 \subsection{Condensateurs} \label{subsec:capacitors}
-Un condensateur stocke de l’énergie dans un champ électrique
-entre deux armatures séparées par un isolant (le diélectrique).
+Un condensateur stocke de l’\'energie dans un champ \'electrique
+entre deux armatures s\'epar\'ees par un isolant (le di\'electrique).
 Sa relation fondamentale est :
 \[
 Q = C \cdot U
 \]
-où \(C\) est la capacité en farads (\unit{\farad}).
+où \(C\) est la capacit\'e en farads (\unit{\farad}).
 Les condensateurs laissent passer les signaux variables (AC)
 et bloquent les signaux constants (DC).
-Ils sont utilisés pour filtrer les alimentations,
-réaliser des circuits résonants, ou encore découpler des étages électroniques.
+Ils sont utilis\'es pour filtrer les alimentations,
+r\'ealiser des circuits r\'esonants, ou encore d\'ecoupler des \'etages \'electroniques.
 
 Les types de condensateurs courants incluent :
 \begin{itemize}
-  \item \textbf{Condensateurs céramiques :} petit format, faible ESR (r\'esistance \'equivalente en s\'erie), haute fréquence.
-        Utilisés pour découplage, filtrage HF et circuits résonants.
-  \item \textbf{Condensateurs électrolytiques :} grande capacité, polarité à respecter,
-        adaptés au filtrage d’alimentation et au stockage d’énergie.
-  \item \textbf{Condensateurs à film :} faible perte, non polarisés, haute stabilité.
+  \item \textbf{Condensateurs c\'eramiques :} petit format, faible ESR (r\'esistance \'equivalente en s\'erie), haute fr\'equence.
+        Utilis\'es pour d\'ecouplage, filtrage HF et circuits r\'esonants.
+  \item \textbf{Condensateurs \'electrolytiques :} grande capacit\'e, polarit\'e à respecter,
+        adapt\'es au filtrage d’alimentation et au stockage d’\'energie.
+  \item \textbf{Condensateurs à film :} faible perte, non polaris\'es, haute stabilit\'e.
         Applications : circuits audio, filtres, temporisations.
-  \item \textbf{Condensateurs tantale :} compacts et stables, polarité à respecter,
-        utilisés pour alimentation stable et découplage.
-  \item \textbf{Supercondensateurs / ultracapacitors :} très grande capacité, décharge rapide,
-        pour sauvegarde d’énergie ou alimentation tampon.
-  \item \textbf{Condensateurs à mica :} grande précision, faible perte, haute fréquence.
-        Utilisés pour oscillateurs HF et circuits radio.
-  \item \textbf{Condensateurs variables :} capacité réglable mécaniquement ou électroniquement,
+  \item \textbf{Condensateurs tantale :} compacts et stables, polarit\'e à respecter,
+        utilis\'es pour alimentation stable et d\'ecouplage.
+  \item \textbf{Supercondensateurs / ultracapacitors :} tr\`es grande capacit\'e, d\'echarge rapide,
+        pour sauvegarde d’\'energie ou alimentation tampon.
+  \item \textbf{Condensateurs à mica :} grande pr\'ecision, faible perte, haute fr\'equence.
+        Utilis\'es pour oscillateurs HF et circuits radio.
+  \item \textbf{Condensateurs variables :} capacit\'e r\'eglable m\'ecaniquement ou \'electroniquement,
         pour syntonisation\footnote{Glossaire~: \gls{syntonisation}}  d’oscillateurs ou ajustement de filtres.
 \end{itemize}
 \begin{Note}
-	Les notions de filtrage, fr\'equences et impédances seront abordées dans la section (Work In Progress) \Cref{subsec:ac_circuit_theory}.
+	Les notions de filtrage, fr\'equences et imp\'edances seront abord\'ees dans la section (Work In Progress) \Cref{subsec:ac_circuit_theory}.
 \end{Note}
 
-\textbf{Association en série :}
+\textbf{Association en s\'erie :}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{capacitor-series.pdf}
     \caption{\centering
-    Association en série de condensateurs.\\
-    L’inverse de la capacité équivalente est la somme des inverses des capacités individuelles
+    Association en s\'erie de condensateurs.\\
+    L’inverse de la capacit\'e \'equivalente est la somme des inverses des capacit\'es individuelles
     ~:\\
     \vspace{\baselineskip}
     \(\dfrac{1}{C_{eq}} = \dfrac{1}{C_1} + \dfrac{1}{C_2}\)}
 \end{figure}
 
-\textbf{Association en parallèle :}
+\textbf{Association en parall\`ele :}
 \begin{figure}[H]
     \fcapside[\FBwidth]{%
         \caption[Condensateurs en parall\`ele.]{
-        Association en parallèle de condensateurs.\\
-        La capacité équivalente est la somme des capacités individuelles~:\\
+        Association en parall\`ele de condensateurs.\\
+        La capacit\'e \'equivalente est la somme des capacit\'es individuelles~:\\
         \(C_{eq} = C_1 + C_2\).}%
         \label{fig:capacitor-parallel}%
     }{\includegraphics[width=0.4\textwidth]{capacitor-parallel.pdf}}%
 \end{figure}
 
 \subsection{Inductances} \label{subsec:inductors}
-Une inductance (ou bobine) est un composant passif qui stocke de l’énergie
-dans un champ magnétique lorsqu’un courant la traverse.
+Une inductance (ou bobine) est un composant passif qui stocke de l’\'energie
+dans un champ magn\'etique lorsqu’un courant la traverse.
 \[
 u(t) = L \frac{di(t)}{dt}
 \]
-où \(L\) est l’inductance (en henrys, \unit{\henry}) et \(i(t)\) le courant instantané.
+où \(L\) est l’inductance (en henrys, \unit{\henry}) et \(i(t)\) le courant instantan\'e.
 
 \vspace{\baselineskip}
 Lorsque le courant est constant (\(\frac{di}{dt} = 0\)), la tension aux bornes
 de l’inductance est nulle (\(u = 0\)). Autrement dit, une inductance se comporte
-comme un \textbf{court-circuit idéal} en régime continu. L’inductance ne s’oppose
+comme un \textbf{court-circuit id\'eal} en r\'egime continu. L’inductance ne s’oppose
 donc pas au courant constant, mais uniquement aux variations de courant et \'emet un champ
-magnétique constant.
+magn\'etique constant.
 
 
 \subsection{Diodes} \label{subsec:diodes}
 Une diode est un composant semi-conducteur qui laisse passer le courant
 dans un sens (polarisation directe) et le bloque dans l’autre (polarisation inverse).
-Sa caractéristique \(I(V)\) est non linéaire et se rapproche
-d’un interrupteur dirigé.
+Sa caract\'eristique \(I(V)\) est non lin\'eaire et se rapproche
+d’un interrupteur dirig\'e.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{diodes.pdf}
@@ -345,13 +345,13 @@ d’un interrupteur dirigé.
         \fakecustommacro{b} Symbole d’une diode Zener.
     }
 \end{figure}
-Les applications courantes impliquent le redressement dans les alimentations, la protection contre l’inversion de polarité
-ou la régulation de tension (diodes Zener).
-Certaines diodes spéciales, comme les LED, convertissent l’énergie électrique en lumière.
+Les applications courantes impliquent le redressement dans les alimentations, la protection contre l’inversion de polarit\'e
+ou la r\'egulation de tension (diodes Zener).
+Certaines diodes sp\'eciales, comme les LED, convertissent l’\'energie \'electrique en lumi\`ere.
 
 \subsection{Transistors} \label{subsec:transistors}
-Le transistor est un composant actif central de l’électronique moderne.
-Il peut amplifier un signal ou agir comme un interrupteur contrôlé.
+Le transistor est un composant actif central de l’\'electronique moderne.
+Il peut amplifier un signal ou agir comme un interrupteur contrôl\'e.
 On distingue principalement :
 \begin{itemize}
   \item \textbf{BJT (bipolaire)} : le courant de base contrôle
@@ -369,11 +369,11 @@ On distingue principalement :
     }
 \end{figure}
 
-Les transistors sont utilisés dans les amplificateurs,
-les circuits logiques, les régulateurs, et constituent les briques de base des processeurs.
+Les transistors sont utilis\'es dans les amplificateurs,
+les circuits logiques, les r\'egulateurs, et constituent les briques de base des processeurs.
 
 \section{Lois de Kirchhoff} \label{subsec:kirchhoff}
-Les lois de Kirchhoff permettent d’analyser les circuits électriques en exprimant
+Les lois de Kirchhoff permettent d’analyser les circuits \'electriques en exprimant
 des relations fondamentales entre tensions et courants. Elles sont au nombre de deux :
 la loi des nœuds (ou loi des courants) et la loi des mailles (ou loi des tensions).
 \subsection{Loi des n{\oe}uds} \label{subsec:noeuds}
@@ -381,11 +381,11 @@ la loi des nœuds (ou loi des courants) et la loi des mailles (ou loi des tensio
     \centering
     \fcapside[\FBwidth]{%
         \caption[Loi des n{\oe}uds.]{
-            La somme des courants entrants dans un n{\oe}ud est égale à la somme des courants sortants ou autrement dit,
+            La somme des courants entrants dans un n{\oe}ud est \'egale à la somme des courants sortants ou autrement dit,
             la somme totale des courants est \'egale \`a 0.\\
             Ici~: \(I_1+I_4=I_3+I_2\), ou \(\displaystyle\sum_{i=1}^nI_i=0\)\\
             \vspace{\baselineskip}
-            Mathématiquement~: \(\displaystyle\sum I_{in} = \displaystyle\sum I_{out}\)
+            Math\'ematiquement~: \(\displaystyle\sum I_{in} = \displaystyle\sum I_{out}\)
         }%
         \label{fig:kirchhoff-current}%
     }{\includegraphics[width=0.4\textwidth]{kirchhoff-current.pdf}}%
@@ -396,10 +396,10 @@ la loi des nœuds (ou loi des courants) et la loi des mailles (ou loi des tensio
     \centering
     \includegraphics[width=0.6\textwidth]{kirchhoff-voltage.pdf}
     \caption[Loi des mailles.]{
-        La somme algébrique des tensions dans une maille fermée est nulle.\\
+        La somme alg\'ebrique des tensions dans une maille ferm\'ee est nulle.\\
         Ici~: \(E+U_{ab}+U_{bc}+U_{cd}=0\), ou \(\displaystyle\sum_{i=1}^nU_i=0\)\\
         \vspace{\baselineskip}
-        Mathématiquement~: \(\displaystyle\sum U_{rise} = \displaystyle\sum U_{drop}\)
+        Math\'ematiquement~: \(\displaystyle\sum U_{rise} = \displaystyle\sum U_{drop}\)
     }
     \label{fig:kirchhoff-voltage}%
 \end{figure}
@@ -408,16 +408,16 @@ la loi des nœuds (ou loi des courants) et la loi des mailles (ou loi des tensio
 	\[\sum_i V_i = - \sum_i \int_{\mathcal{P}_i}\mathbf{E}\cdot\mathrm{d}\mathbf{l} = \oint\mathbf{E}\cdot\mathrm{d}\mathbf{l} = 0\]
 \end{Todo}
 
-\section{Théorèmes d'équivalence : Thévenin et Norton} \label{subsec:thevenin_norton}
+\section{Th\'eor\`emes d'\'equivalence : Th\'evenin et Norton} \label{subsec:thevenin_norton}
 
-Les théorèmes de Thévenin et de Norton permettent de simplifier des circuits
-complexes en modèles équivalents plus faciles à analyser. Ils sont très utiles
+Les th\'eor\`emes de Th\'evenin et de Norton permettent de simplifier des circuits
+complexes en mod\`eles \'equivalents plus faciles à analyser. Ils sont tr\`es utiles
 pour calculer rapidement les tensions et courants vus par une charge.
 
-\subsection{Théorème de Thévenin}
+\subsection{Th\'eor\`eme de Th\'evenin}
 
-Tout circuit linéaire à deux bornes peut être remplacé par une source de tension
-unique \(E_{th}\) en série avec une résistance équivalente \(R_{th}\).
+Tout circuit lin\'eaire à deux bornes peut \^etre remplac\'e par une source de tension
+unique \(E_{th}\) en s\'erie avec une r\'esistance \'equivalente \(R_{th}\).
 
 Prenons un circuit plut\^ot simple\footnote{Tir\'e du cours de Didier Villers},
 avec une source de tension et deux r\'esistances, alimentant une charge \(C\) :
@@ -441,21 +441,21 @@ E_{th} = E \cdot \frac{R_2}{R_1+R_2} = 5\unit{\volt} \cdot \frac{1\unit{\kilo\oh
 \]
 
 Ensuite, on remplace la source de tension par un court-circuit et on calcule la
-résistance équivalente \(R_{th}\) vue des bornes de la charge \(C\) :
+r\'esistance \'equivalente \(R_{th}\) vue des bornes de la charge \(C\) :
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{thevenin/2-5Thevenin.pdf}
     \caption{Remplacement de la source de tension par un court-circuit pour calculer \(R_{th}\).}
 \end{figure}
-\(R_{th}\) se calcule facilement avec la formule des résistances en parallèle :
+\(R_{th}\) se calcule facilement avec la formule des r\'esistances en parall\`ele :
 \[
 R_{th} = \frac{R_1 \cdot R_2}{R_1 + R_2} = \frac{1\unit{\kilo\ohm} \cdot 1\unit{\kilo\ohm}}{1\unit{\kilo\ohm} + 1\unit{\kilo\ohm}} = 500\unit{\ohm}
 \]
-On peut maintenant dessiner le circuit équivalent de Thévenin :
+On peut maintenant dessiner le circuit \'equivalent de Th\'evenin :
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{thevenin/3-Thevenin.pdf}
-    \caption{Circuit équivalent de Thévenin.}
+    \caption{Circuit \'equivalent de Th\'evenin.}
     \label{fig:thevenin-equivalent}
 \end{figure}
 En prenant \(R_c=500\unit{\ohm}\).\\
@@ -472,12 +472,12 @@ U_{c} = E_{th} \cdot \frac{R_c}{R_{th} + R_c} = 2.5\unit{\volt} \cdot \frac{500\
 
 
 
-\subsection{Théorème de Norton}
+\subsection{Th\'eor\`eme de Norton}
 
-Tout circuit linéaire à deux bornes peut être remplacé par une source de courant
-unique \(I_{n}\) en parallèle avec une résistance équivalente \(R_{n}\). Il permet
-de simplifier l’analyse des circuits en remplaçant des réseaux complexes de r\'esistances
-invariantes dans le temps par une source de courant et une résistance équivalente.
+Tout circuit lin\'eaire à deux bornes peut \^etre remplac\'e par une source de courant
+unique \(I_{n}\) en parall\`ele avec une r\'esistance \'equivalente \(R_{n}\). Il permet
+de simplifier l’analyse des circuits en remplaçant des r\'eseaux complexes de r\'esistances
+invariantes dans le temps par une source de courant et une r\'esistance \'equivalente.
 
 Prenons un circuit plut\^ot simple\footnote{Tir\'e du cours de Didier Villers}, avec une source de courant et deux r\'esistances
 en s\'erie, alimentant une charge \(C\) :
@@ -500,23 +500,23 @@ I_{n} = I \cdot \frac{R_{2}}{R_{1}+R_{2}} = 2\unit{\ampere} \cdot \frac{10\unit{
 \]
 
 Ensuite, on remplace la source de courant par un circuit ouvert et on calcule la
-résistance équivalente \(R_{n}\) vue des bornes de la charge \(C\) :
+r\'esistance \'equivalente \(R_{n}\) vue des bornes de la charge \(C\) :
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{norton/2-5Norton.pdf}
     \caption{Remplacement de la source de courant par un circuit ouvert pour calculer \(R_{n}\).}
 \end{figure}
 
-\(R_{n}\) se calcule facilement avec la formule des résistances en série :
+\(R_{n}\) se calcule facilement avec la formule des r\'esistances en s\'erie :
 \[
 R_{n} = R_{1} + R_{2} = 10\unit{\ohm} + 15\unit{\ohm} = 25\unit{\ohm}
 \]
 
-On peut maintenant dessiner le circuit équivalent de Norton :
+On peut maintenant dessiner le circuit \'equivalent de Norton :
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{norton/3-Norton.pdf}
-    \caption{Circuit équivalent de Norton.}
+    \caption{Circuit \'equivalent de Norton.}
     \label{fig:norton-equivalent}
 \end{figure}
 En prenant \(R_c=500\unit{\ohm}\).\\
@@ -531,12 +531,12 @@ U_{c} = I_{n} \cdot \frac{R_{n} \cdot R_{c}}{R_{n} + R_{c}} = 1.33\unit{\ampere}
     \caption{Calcul de la tension \(U_{c}\) aux bornes de la charge \(C\).}
 \end{figure}
 
-\subsection{Relation entre Thévenin et Norton}
+\subsection{Relation entre Th\'evenin et Norton}
 
-Il est souvent pratique de passer d'une représentation de Thévenin à une
-représentation de Norton, et vice-versa, les deux représentations sont
-strictement équivalentes. Voici les relations entre les paramètres des deux
-modèles :
+Il est souvent pratique de passer d'une repr\'esentation de Th\'evenin à une
+repr\'esentation de Norton, et vice-versa, les deux repr\'esentations sont
+strictement \'equivalentes. Voici les relations entre les param\`etres des deux
+mod\`eles :
 \begin{align*}
   E_{th} & = I_{n} \cdot R_{n} \\
   I_{n} & = \frac{E_{th}}{R_{th}} \\
@@ -544,11 +544,14 @@ modèles :
 \end{align*}
 
 \begin{Note}
-	Points clés des théorèmes de Thévenin et Norton :
+	Points cl\'es des th\'eor\`emes de Th\'evenin et Norton :
     \begin{enumerate}
-        \item Ils permettent de simplifier des circuits complexes en modèles équivalents plus simples.
-        \item Le théorème de Thévenin utilise une source de tension en série avec une résistance.
-        \item Le théorème de Norton utilise une source de courant en parallèle avec une résistance.
-        \item Les deux modèles sont équivalents et peuvent être convertis l’un en l’autre.
+        \item Ils permettent de simplifier des circuits complexes en mod\`eles \'equivalents plus simples.
+        \item Le th\'eor\`eme de Th\'evenin utilise une source de tension en s\'erie avec une r\'esistance.
+        \item Le th\'eor\`eme de Norton utilise une source de courant en parall\`ele avec une r\'esistance.
+        \item Les deux mod\`eles sont \'equivalents et peuvent \^etre convertis l’un en l’autre.
     \end{enumerate}
 \end{Note}
+
+\section{Theor\`eme de Millman} \label{subsec:millman}
+Le th\'eor\`eme de Millman est une m\'ethode efficace pour analyser des circuits \'electriques comportant plusieurs branches en parall\`ele aliment\'ees par des sources de tension et de courant. Il permet de calculer rapidement la tension commune aux nœuds d’un circuit complexe.
