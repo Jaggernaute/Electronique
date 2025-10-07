@@ -103,11 +103,11 @@ En revanche, deux fils qui se croisent sans point ne sont pas connect\'es.
 Pour analyser un circuit, il est souvent utile de fl\'echer les tensions et les courants.
 \begin{itemize}
     \item \textbf{Tension} : La tension est une diff\'erence de potentiel entre deux points.
-    On flèche la tension de la borne positive (\(+\)) vers la borne n\'egative (\(-\)).
+    On fl\`eche la tension de la borne positive (\(+\)) vers la borne n\'egative (\(-\)).
     \item \textbf{Courant} : Le courant est le flux de charges \'electriques.
-    On flèche le courant dans la direction du flux des charges positives (de \(+\) vers \(-\)).
+    On fl\`eche le courant dans la direction du flux des charges positives (de \(+\) vers \(-\)).
 \end{itemize}
-Ces flèches aident à visualiser comment l’\'energie circule dans le circuit.
+Ces fl\`eches aident à visualiser comment l’\'energie circule dans le circuit.
 
 \subsection{Exemple simple}
 
@@ -134,15 +134,88 @@ c'est-à-dire rep\'erer comment les montages courants comme les redresseurs, amp
 \end{Note}
 
 \section{Concepts \'electriques de base}
-\subsection{Admittance, Imp\'edance, Conductance et Résistance}
+\subsection{R\'esistances}
+La r\'esistance est un composant \'electronique qui \emph{limite le flux} de courant dans un circuit. Section d\'edi\'ee aux r\'esistances : \Cref{subsec:resistors}.
+
+\subsection{R\'esistivit\'e}
+La r\'esistivit\'e (\(\rho\)) est une propri\'et\'e physique des mat\'eriaux qui mesure leur \textbf{opposition} au passage du courant \'electrique. Elle est mesur\'ee en ohm-m\`etre (\unit{\ohm\meter}). La r\'esistivit\'e d\'epend de la nature du mat\'eriau, de sa temp\'erature, et de sa puret\'e. Les m\'etaux ont une r\'esistivit\'e faible, tandis que les isolants ont une r\'esistivit\'e \'elev\'ee. La r\'esistivit\'e est li\'ee à la r\'esistance (\(R\)) d’un conducteur par la formule~:
+\[ R = \rho \dfrac{L}{A} \]
+o\`u \(L\) est la longueur du conducteur et \(A\) sa section transversale.
+
+\subsection{Conductivit\'e}
+La conductivit\'e est une propri\'et\'e physique des mat\'eriaux qui mesure leur capacit\'e à conduire le courant \'electrique. Elle est d\'efinie comme l’inverse de la r\'esistivit\'e (\(\rho\)) et est mesur\'ee en siemens par m\`etre (\unit{\siemens\per\meter}). La conductivit\'e (\(\sigma\)) est donn\'ee par la formule :
+\[\sigma = \dfrac{1}{\rho} \]
+La conductivit\'e d\'epend de la nature du mat\'eriau, de sa temp\'erature, et de sa puret\'e. Les m\'etaux ont une conductivit\'e \'elev\'ee, tandis que les isolants ont une conductivit\'e faible. Voir \Cref{tab:conductivity} pour la conductivit\'e de quelques m\'etaux courants.
+\begin{table}[h!]
+    \centering
+    \caption{Conductivit\'e \'electrique de quelques m\'etaux à \SI{20}{\unit{\celsius}}}
+    \label{tab:conductivity}
+    \begin{tabular}{l S[table-format=1.2e2]}
+        \toprule
+        \textbf{M\'etal} & \textbf{Conductivit\'e}~\unit{\siemens\per\meter} \\
+        \hline
+        Argent (Ag)      & 6.30e7 \\
+        Cuivre (Cu)      & 5.96e7 \\
+        Or (Au)          & 4.10e7 \\
+        Aluminium (Al)   & 3.77e7 \\
+        Magn\'esium (Mg)   & 2.30e7 \\
+        Tungst\`ene (W)    & 1.89e7 \\
+        Zinc (Zn)        & 1.69e7 \\
+        Nickel (Ni)      & 1.43e7 \\
+        Fer (Fe)         & 1.00e7 \\
+        Plomb (Pb)       & 4.55e6 \\
+        \'etain (Sn)       & 9.10e6 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Imp\'edance}
+L'\textbf{imp\'edance} (not\'ee $Z$) g\'en\'eralise la notion de r\'esistance au r\'egime sinusoïdal. C’est une \emph{grandeur complexe} qui relie la tension et le courant~:
+\[
+Z = \frac{U}{I}
+\]
+On l’\'ecrit~:
+\[
+Z = R + jX
+\]
+o\`u~:
 \begin{itemize}
-    \item \textbf{Résistance (R)} : La résistance est une mesure de l’opposition au flux de courant dans un conducteur.
-    Elle est mesurée en ohms (\(\Omega\)) et est définie par la loi d’Ohm : \(V = IR\), où \(V\) est la tension, \(I\) le courant, et \(R\) la résistance.\footnote{Concept d\'evelopp\'e en section \Cref{subsec:resistors}.}
-    \item \textbf{Conductance (G)} : La conductance est l’inverse de la résistance, mesurée en siemens (S).
-    Elle indique la facilité avec laquelle le courant peut circuler à travers un matériau : \(G = \frac{1}{R}\).
-    \item \textbf{Impedance (Z)} : L’impédance est une généralisation de la résistance pour les circuits en courant alternatif (AC).
-    Elle combine la résistance et la réactance (due aux condensateurs et inducteurs) et est également mesurée en ohms (\(\Omega\)).
-    L’impédance est une quantité complexe, exprimée comme \(Z = R + jX\), où \(X\) est la réactance.
-    \item \textbf{Admittance (Y)} : L’admittance est l’inverse de l’impédance, mesurée en siemens (S).
-    Elle combine la conductance et la susceptance (l’inverse de la réactance) : \(Y = G + jB\), où \(B\) est la susceptance.
+  \item $R$ : r\'esistance (part r\'eelle)
+  \item $X$ : r\'eactance (part imaginaire)
 \end{itemize}
+L’unit\'e de l’imp\'edance est l’\textbf{ohm} (\unit{\ohm}). Elle caract\'erise à la fois la dissipation (via $R$) et le stockage d’\'energie (via $X$) dans le circuit.
+
+\subsection{Admittance}
+L'\textbf{admittance} (not\'ee $Y$) est la \emph{grandeur inverse de l'imp\'edance}. Elle mesure la facilit\'e avec laquelle un courant traverse un circuit soumis à une tension alternative~:
+\[
+Y = \frac{1}{Z}
+\]
+C’est une grandeur complexe :
+\[
+Y = G + jB
+\]
+o\`u~:
+\begin{itemize}
+  \item $G$ : conductance (part r\'eelle, en siemens)
+  \item $B$ : susceptance (part imaginaire, en siemens)
+\end{itemize}
+
+\subsection{Susceptance}
+La \textbf{susceptance} (not\'ee $B$) repr\'esente la \emph{part imaginaire de l'admittance} d'un circuit.
+Elle exprime la capacit\'e d'un composant à laisser passer le courant alternatif en raison de sa r\'eactance.
+\[
+B = \frac{1}{X}
+\]
+o\`u $X$ est la r\'eactance du composant (\unit{\ohm}).
+L'unit\'e de la susceptance est le \textbf{siemens} (\unit{\siemens}).
+\begin{itemize}
+  \item Pour une \textbf{inductance} : $B_L = -\dfrac{1}{\omega L}$
+  \item Pour une \textbf{capacit\'e} : $B_C = \omega C$
+\end{itemize}
+
+\subsection{R\'eactance}
+La \textbf{r\'eactance} (not\'ee $X$) exprime la \emph{r\'esistance oppos\'ee au passage du courant alternatif} due à la pr\'esence d’une bobine ou d’un condensateur. Elle d\'epend de la fr\'equence $\omega = 2\pi f$~:
+\[
+X = \omega L \quad \text{(inductive)} \qquad \text{ou} \qquad X = -\frac{1}{\omega C} \quad \text{(capacitive)}
+\]
+Son unit\'e est l’\textbf{ohm} (\unit{\ohm}). Une r\'eactance positive est dite \textbf{inductive}, une r\'eactance n\'egative \textbf{capacitive}.
