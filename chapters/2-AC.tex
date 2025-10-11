@@ -1,8 +1,8 @@
 \chapter{Th\'eorie des circuits AC} \label{subsec:ac_circuit_theory}
 
 \section{Introduction au courant alternatif} \label{subsec:intro_ac}
-Le \emph{courant alternatif} (souvent not\'e \textbf{AC} pour \emph{Alternating Current}) est un type de courant \'electrique dont l’intensit\'e et la direction varient p\'eriodiquement au cours du temps. Contrairement au courant continu (DC), où les \'electrons circulent toujours dans le même sens, le courant alternatif change de sens à intervalles r\'eguliers, g\'en\'eralement selon une forme sinusoïdale.\par
-Il est g\'en\'eralement repr\'esent\'e pas une onde sinusoïdale~:
+Le \emph{courant alternatif} (souvent not\'e \textbf{AC} pour \emph{Alternating Current}) est un type de courant \'electrique dont l’intensit\'e et la direction varient p\'eriodiquement au cours du temps. Contrairement au courant continu (DC), où les \'electrons circulent toujours dans le même sens, le courant alternatif change de sens à intervalles r\'eguliers, g\'en\'eralement selon une forme sinuso\"idale.\par
+Il est g\'en\'eralement repr\'esent\'e pas une onde sinuso\"idale~:
 \[
     u(t) = U_{max} \cdot \sin(\omega t + \phi)
 \]
@@ -15,7 +15,7 @@ o\`u :
 \end{itemize}
 
 \subsection{La phase}
-La \emph{phase} d'une onde sinuso\"idale d\'efinit son \emph{d\'ecalage temporel} par rapport à une r\'ef\'erence. Elle est exprimée en radians (ou en degr\'es) et indique \`a quel point l'onde commence dans son cycle au temps $t = 0$.\par
+La \emph{phase} d'une onde sinuso\"idale d\'efinit son \emph{d\'ecalage temporel} par rapport à une r\'ef\'erence. Elle est exprim\'ee en radians (ou en degr\'es) et indique \`a quel point l'onde commence dans son cycle au temps $t = 0$.\par
 
 \begin{figure}[h!]
     \newcounter{angle}
@@ -124,8 +124,111 @@ Pour une onde triangulaire, la valeur efficace est donn\'ee par~:
 
 
 \subsection{Puissance en AC}
-La puissance moyenne dissip\'ee dans un circuit en courant alternatif est donn\'ee par la formule~:
-\[ P = U_{\text{eff}} \cdot I_{\text{eff}} \cdot \cos(\phi) \]
+La puissance dans un circuit en courant alternatif d\'epend non seulement de la tension et du courant, mais aussi du d\'ephasage $\phi$ entre eux.
+La tension et le courant peuvent être exprim\'es sous forme sinuso\"idale :
+\[
+u(t) = U_{\text{max}} \sin(\omega t), \quad i(t) = I_{\text{max}} \sin(\omega t - \phi)
+\]
+La puissance instantan\'ee vaut alors :
+\[
+p(t) = u(t) \cdot i(t) = U_{\text{max}} I_{\text{max}} \sin(\omega t)\sin(\omega t - \phi)
+\]
+En utilisant l'identit\'e trigonom\'etrique $\sin A \sin B = \tfrac{1}{2}[\cos(A - B) - \cos(A + B)]$, on obtient :
+\[
+p(t) = \frac{U_{\text{max}} I_{\text{max}}}{2} [\cos(\phi) - \cos(2\omega t - \phi)]
+\]
+La puissance instantan\'ee est donc constitu\'ee d’un terme constant et d’un terme variable à la fr\'equence double.
+
+\begin{Note}{\textbf{Puissance moyenne (active)}}\\
+Le terme oscillant $\cos(2\omega t - \phi)$ a une moyenne nulle sur une p\'eriode complète.
+La puissance moyenne (ou puissance active) est donc :
+\[
+P = \frac{U_{\text{max}} I_{\text{max}}}{2} \cos(\phi)
+\]
+En exprimant les grandeurs en valeurs efficaces :
+\[
+U_{\text{eff}} = \frac{U_{\text{max}}}{\sqrt{2}}, \quad I_{\text{eff}} = \frac{I_{\text{max}}}{\sqrt{2}}
+\]
+on obtient la relation fondamentale :
+\[
+\boxed{P = U_{\text{eff}} \cdot I_{\text{eff}} \cdot \cos(\phi)}
+\]
+où :
+\begin{itemize}
+    \item $P$ est la puissance active (en watts, W),
+    \item $U_{\text{eff}}$ est la tension efficace (en volts, V),
+    \item $I_{\text{eff}}$ est le courant efficace (en ampères, A),
+    \item $\phi$ est le d\'ephasage entre la tension et le courant.
+\end{itemize}
+\end{Note}
+
+\subsubsection*{Les diff\'erentes puissances en r\'egime alternatif}
+On distingue trois formes de puissance :
+\begin{itemize}
+    \item \textbf{Puissance apparente}~:
+    \[
+    S = U_{\text{eff}} I_{\text{eff}} \quad [\text{VA}]
+    \]
+    Elle repr\'esente la puissance totale fournie au circuit.
+
+    \item \textbf{Puissance active}~:
+    \[
+    P = U_{\text{eff}} I_{\text{eff}} \cos(\phi) \quad [\text{W}]
+    \]
+    Elle correspond à la puissance r\'eellement consomm\'ee ou convertie en travail ou chaleur.
+
+    \item \textbf{Puissance r\'eactive}~:
+    \[
+    Q = U_{\text{eff}} I_{\text{eff}} \sin(\phi) \quad [\text{var}]
+    \]
+    Elle repr\'esente l’\'energie \'echang\'ee p\'eriodiquement entre les champs \'electrique et magn\'etique des composants r\'eactifs (bobines et condensateurs).
+\end{itemize}
+
+Ces trois puissances sont li\'ees par la relation :
+\[
+S^2 = P^2 + Q^2
+\]
+et peuvent être repr\'esent\'ees sous forme d’un \textbf{triangle des puissances}.
+Le \emph{facteur de puissance}, not\'e $\cos(\phi)$, indique la part de puissance r\'eellement utilis\'ee par le circuit :
+\[
+\text{Facteur de puissance} = \frac{P}{S} = \cos(\phi)
+\]
+Un facteur de puissance proche de \(1\) signifie un usage efficace de l’\'energie \'electrique, tandis qu’un facteur faible traduit une forte composante r\'eactive.
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines=middle,
+    xlabel={$P$ (W)},
+    ylabel={$Q$ (var)},
+    xmin=0, xmax=3.8,
+    ymin=0, ymax=2.8,
+    grid=both,
+    width=9cm, height=6cm,
+    axis equal image,
+    xtick=\empty, ytick=\empty,
+    enlargelimits=false,
+    axis line style={thick,-latex},
+    every axis y label/.style={
+        at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel,
+    },
+    every axis x label/.style={
+        at={(ticklabel cs:0.5)},anchor=near ticklabel,
+    },
+  ]
+  \coordinate (O) at (axis cs:0,0);
+  \coordinate (A) at (axis cs:3,0);   % P
+  \coordinate (B) at (axis cs:3,2);   % Q
+  \draw[thick, blue] (O) -- node[below, yshift=-2pt] {$P$} (A);
+  \draw[thick, red] (A) -- node[right, xshift=2pt] {$Q$} (B);
+  \draw[thick, black] (O) -- node[above left, rotate=35] {$S=\sqrt{P^2+Q^2}$} (B);
+  \draw pic["$\phi$", draw=black, angle radius=8mm, angle eccentricity=1.2] {angle = A--O--B};
+  \node at (axis cs:1.5,0.5) {\small $\cos\phi = \dfrac{P}{S}$};
+  \end{axis}
+\end{tikzpicture}
+\caption{Triangle des puissances en r\'egime alternatif : relation entre $P$, $Q$ et $S$.}
+\label{fig:triangle_puissances}
+\end{figure}
 
 
 \section{Circuits RLC} \label{subsec:rlc_circuits}
