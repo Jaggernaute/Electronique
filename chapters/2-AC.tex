@@ -221,7 +221,7 @@ Un facteur de puissance proche de \(1\) signifie un usage efficace de l’\'ener
   \coordinate (B) at (axis cs:3,2);   % Q
   \draw[thick, blue] (O) -- node[below, yshift=-2pt] {$P$} (A);
   \draw[thick, red] (A) -- node[right, xshift=2pt] {$Q$} (B);
-  \draw[thick, black] (O) -- node[above left, rotate=35] {$S=\sqrt{P^2+Q^2}$} (B);
+  \draw[thick, black] (O) -- node[above, rotate=35] {$S=\sqrt{P^2+Q^2}$} (B);
   \draw pic["$\phi$", draw=black, angle radius=8mm, angle eccentricity=1.2] {angle = A--O--B};
   \node at (axis cs:1.5,0.5) {\small $\cos\phi = \dfrac{P}{S}$};
   \end{axis}
