@@ -21,8 +21,8 @@ Description
 | Section | Statut |
 |---------|--------|
 | Chapitre 1 Préliminaires | 🟢 Complété |
-| Chapitre 2 Courant continu | 🟡 En cours |
-| Chapitre 3 Courant alternatif | 🔴 À faire |
+| Chapitre 2 Courant continu | 🟢 Complété |
+| Chapitre 3 Courant alternatif | 🟡 En cours |
 | Chapitre 4 Amplificateurs opérationnels | 🔴 À faire |
 | Chapitre 5 Électronique numérique | 🔴 À faire |
 | Chapitre 6 SLTI | 🔴 À faire |
