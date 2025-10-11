@@ -1,6 +1,46 @@
-\chapter{Théorie des circuits AC} \label{subsec:ac_circuit_theory}
+\chapter{Th\'eorie des circuits AC} \label{subsec:ac_circuit_theory}
+
+\section{Introduction au courant alternatif} \label{subsec:intro_ac}
+Le \emph{courant alternatif} (souvent not\'e \textbf{AC} pour \emph{Alternating Current}) est un type de courant \'electrique dont l’intensit\'e et la direction varient p\'eriodiquement au cours du temps. Contrairement au courant continu (DC), où les \'electrons circulent toujours dans le même sens, le courant alternatif change de sens à intervalles r\'eguliers, g\'en\'eralement selon une forme sinusoïdale.\par
+Il est g\'en\'eralement repr\'esent\'e pas une onde sinusoïdale~:
+\[
+    u(t) = U_{max} \cdot \sin(\omega t + \phi)
+\]
+o\`u :
+\begin{itemize}
+    \item $u(t)$ est la tension instantan\'ee en fonction du temps $t$,
+    \item $U_{max}$ est l'amplitude maximale de la tension,
+    \item $\omega$ est la pulsation angulaire (en radians par seconde), reli\'ee à la fr\'equence $f$ par la relation $\omega = 2\pi f$,
+    \item $\phi$ est la phase initiale (en radians), qui d\'etermine le d\'ecalage de l'onde par rapport au temps $t = 0$.
+\end{itemize}
+La valeur efficace (ou RMS, \emph{Root Mean Square}) d'une tension ou d'un courant alternatif est une mesure de la valeur moyenne de la puissance dissip\'ee par le courant.
+Pour une onde sinuso\"idale, la valeur efficace est donn\'ee par~:
+\[
+U_{\text{eff}} = \frac{U_{\text{max}}}{\sqrt{2}}
+\]
+
+\begin{Note}{\textbf{D'où vient le $\sqrt{2}$ ?}}\\
+La formule g\'en\'erale de la valeur efficace est~:
+\[
+U_{\text{eff}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [u(t)]^2 \, dt}
+\]
+avec \( u(t) = U_{\text{max}}\sin(\omega t) \). On obtient alors~:
+\[
+U_{\text{eff}} = U_{\text{max}} \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} \sin^2(\omega t)\, dt}
+\]
+En utilisant l'identit\'e trigonom\'etrique $\sin^2(x) = \frac{1 - \cos(2x)}{2}$, on peut \'ecrire~:
+\[
+\int_{T_1}^{T_2} \sin^2(\omega t)\, dt = \frac{1}{2}(T_2 - T_1)
+\]
+puisque l’int\'egrale du terme $\cos(2\omega t)$ sur une p\'eriode compl\`ete est nulle.
+Ainsi :
+\[
+U_{\text{eff}} = U_{\text{max}} \sqrt{\frac{1}{T_2 - T_1} \cdot \frac{T_2 - T_1}{2}} = \frac{U_{\text{max}}}{\sqrt{2}}
+\]
+\end{Note}
+
 \section{Circuits RLC} \label{subsec:rlc_circuits}
-\section{Impédance et réactance} \label{subsec:impedance_reactance}
-\section{Filtres et réponse en fréquence} \label{subsec:filters}
-\section{Transformateurs et électromagnétisme} \label{subsec:transformers}
-\section{Alimentations et électronique de puissance} \label{subsec:power_supplies}
+\section{Imp\'edance et r\'eactance} \label{subsec:impedance_reactance}
+\section{Filtres et r\'eponse en fr\'equence} \label{subsec:filters}
+\section{Transformateurs et \'electromagn\'etisme} \label{subsec:transformers}
+\section{Alimentations et \'electronique de puissance} \label{subsec:power_supplies}
