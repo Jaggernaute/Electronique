@@ -1,17 +1,358 @@
-% syntonisation
-\newglossaryentry{syntonisation}{
-    name={syntonisation},
-    description={
-        Ajuster deux circuits à la même fréquence.
-    }
+
+\newglossaryentry{noeud}{
+    name={n{\oe}ud \'electrique},
+    description={Point de connexion entre plusieurs conducteurs dans un circuit.}
 }
 
-% VHDL
-%\newglossaryentry{example}{
-%    name={example},
-%    description={
-%        Simple example of a glossary entry.
-%    }
-%}
+\newglossaryentry{maille}{
+    name={maille},
+    description={Boucle ferm\'ee d'un circuit parcourue par le courant.}
+}
 
-%\newacronym{ex_acro}{acronym}{Example of an acronym entry}
+\newglossaryentry{masse}{
+    name={masse},
+    description={R\'ef\'erence de potentiel d'un circuit, g\'en\'eralement \`a 0 volt.}
+}
+
+\newglossaryentry{courant_alternatif}{
+    name={courant alternatif (AC)},
+    description={Courant dont la valeur et la direction varient p\'eriodiquement dans le temps.}
+}
+
+\newglossaryentry{courant_continu}{
+    name={courant continu (DC)},
+    description={Courant dont la direction et l'intensit\'e restent constantes.}
+}
+
+\newglossaryentry{tension}{
+    name={tension},
+    description={Diff\'erence de potentiel \'electrique entre deux points d'un circuit.}
+}
+
+\newglossaryentry{intensite}{
+    name={intensit\'e du courant},
+    description={Quantit\'e de charge traversant une section de conducteur par unit\'e de temps.}
+}
+
+\newglossaryentry{charge}{
+    name={charge \'electrique},
+    description={Quantit\'e d'\'electricit\'e exprim\'ee en coulombs (C).}
+}
+
+\newglossaryentry{coulomb}{
+    name={coulomb (C)},
+    description={Unit\'e de charge \'electrique, \'equivalente \`a la charge transport\'ee par $6{,}24 \times 10^{18}$ \'electrons.}
+}
+
+\newglossaryentry{ampere}{
+    name={amp\`ere (A)},
+    description={Unit\'e d'intensit\'e du courant \'electrique : $1\,\text{A} = 1\,\text{C}/\text{s}$.}
+}
+
+\newglossaryentry{ampereheure}{
+    name={amp\`ere-heure (Ah)},
+    description={Quantit\'e de charge correspondant \`a un courant d'un amp\`ere pendant une heure.}
+}
+
+\newglossaryentry{valeur_efficace}{
+    name={valeur efficace (RMS)},
+    description={Racine carr\'ee de la moyenne du carr\'e d'une grandeur variable ; mesure la puissance \'equivalente en continu.}
+}
+
+\newglossaryentry{frequence}{
+    name={fr\'equence (f)},
+    description={Nombre de p\'eriodes par seconde d'un signal p\'eriodique, exprim\'e en hertz (Hz).}
+}
+
+\newglossaryentry{pulsation}{
+    name={pulsation $\omega$},
+    description={Vitesse angulaire d'un signal sinusoïdal, $\omega = 2\pi f$.}
+}
+
+\newglossaryentry{phase}{
+    name={phase $\phi$},
+    description={D\'ecalage angulaire entre deux grandeurs sinusoïdales.}
+}
+
+\newglossaryentry{facteur_puissance}{
+    name={facteur de puissance $\cos\phi$},
+    description={Rapport entre la puissance active et la puissance apparente d'un circuit en r\'egime AC.}
+}
+
+% --- Grandeurs \'electriques ---
+\newglossaryentry{resistance}{
+    name={r\'esistance (R)},
+    description={Opposition au passage du courant \'electrique ; mesur\'ee en ohms $\Omega$.}
+}
+
+\newglossaryentry{resistivite}{
+    name={r\'esistivit\'e $\rho$},
+    description={Propri\'et\'e d'un mat\'eriau \`a s'opposer au passage du courant \'electrique.}
+}
+
+\newglossaryentry{conductivite}{
+    name={conductivit\'e $\sigma$},
+    description={Grandeur inverse de la r\'esistivit\'e ; mesure la facilit\'e du passage du courant.}
+}
+
+\newglossaryentry{conductance}{
+    name={conductance (G)},
+    description={Grandeur inverse de la r\'esistance, exprim\'ee en siemens (S).}
+}
+
+\newglossaryentry{impedance}{
+    name={imp\'edance (Z)},
+    description={Grandeur complexe reliant tension et courant en r\'egime sinusoïdal : $Z = R + jX$.}
+}
+
+\newglossaryentry{admittance}{
+    name={admittance (Y)},
+    description={Inverse de l'imp\'edance, $Y = 1/Z = G + jB$.}
+}
+
+\newglossaryentry{reactance}{
+    name={r\'eactance (X)},
+    description={Partie imaginaire de l'imp\'edance, caract\'erisant l'opposition au courant alternatif.}
+}
+
+\newglossaryentry{susceptance}{
+    name={susceptance (B)},
+    description={Partie imaginaire de l'admittance, inverse de la r\'eactance.}
+}
+
+\newglossaryentry{inductance}{
+    name={inductance (L)},
+    description={Propri\'et\'e d'un circuit \`a s'opposer aux variations de courant, mesur\'ee en henrys (H).}
+}
+
+\newglossaryentry{capacite}{
+    name={capacit\'e (C)},
+    description={Aptitude d'un composant \`a stocker de l'\'energie \'electrique sous forme de champ \'electrique.}
+}
+
+\newglossaryentry{effet_joule}{
+    name={effet Joule},
+    description={Transformation de l'\'energie \'electrique en chaleur dans un conducteur travers\'e par un courant.}
+}
+
+% --- Composants ---
+\newglossaryentry{potentiometre}{
+    name={potentiom\`etre},
+    description={R\'esistance variable permettant de r\'egler une tension ou un courant.}
+}
+
+\newglossaryentry{rheostat}{
+    name={rh\'eostat},
+    description={R\'esistance variable utilis\'ee pour ajuster le courant dans un circuit.}
+}
+
+\newglossaryentry{esr}{
+    name={r\'esistance \'equivalente s\'erie (ESR)},
+    description={R\'esistance parasite interne d'un condensateur, mod\'elisant ses pertes.}
+}
+
+\newglossaryentry{condensateur}{
+    name={condensateur},
+    description={Composant stockant de l'\'energie sous forme de charge \'electrique.}
+}
+
+\newglossaryentry{supercondensateur}{
+    name={supercondensateur (ultracondensateur)},
+    description={Condensateur de tr\`es forte capacit\'e utilis\'e pour le stockage d'\'energie.}
+}
+
+\newglossaryentry{diode}{
+    name={diode},
+    description={Composant ne laissant passer le courant que dans un seul sens.}
+}
+
+\newglossaryentry{zener}{
+    name={diode Zener},
+    description={Diode utilis\'ee pour la r\'egulation de tension grâce \`a son effet de claquage contrôl\'e.}
+}
+
+\newglossaryentry{led}{
+    name={LED (diode \'electroluminescente)},
+    description={Diode \'emettant de la lumi\`ere lorsqu'elle est polaris\'ee dans le sens direct.}
+}
+
+\newglossaryentry{bjt}{
+    name={BJT (transistor bipolaire)},
+    description={Transistor command\'e par le courant de base ; Bipolar Junction Transistor.}
+}
+
+\newglossaryentry{mosfet}{
+    name={MOSFET (transistor \`a effet de champ)},
+    description={Transistor command\'e par la tension de grille ; Metal-Oxide–Semiconductor FET.}
+}
+
+\newglossaryentry{thyristor}{
+    name={thyristor},
+    description={Composant semi-conducteur de puissance contrôl\'e par une impulsion de gâchette.}
+}
+
+% --- Lois et th\'eor\`emes ---
+\newglossaryentry{loi_ohm}{
+    name={loi d'Ohm},
+    description={Relation fondamentale : $U = R \times I$.}
+}
+
+\newglossaryentry{loi_noeuds}{
+    name={loi des nœuds (KCL)},
+    description={La somme des courants entrants dans un nœud est \'egale \`a la somme des courants sortants.}
+}
+
+\newglossaryentry{loi_mailles}{
+    name={loi des mailles (KVL)},
+    description={La somme des tensions dans une maille ferm\'ee est nulle.}
+}
+
+\newglossaryentry{thevenin}{
+    name={th\'eor\`eme de Th\'evenin},
+    description={Tout r\'eseau lin\'eaire peut être remplac\'e par une source de tension \'equivalente et une r\'esistance.}
+}
+
+\newglossaryentry{norton}{
+    name={th\'eor\`eme de Norton},
+    description={Tout r\'eseau lin\'eaire peut être remplac\'e par une source de courant \'equivalente et une r\'esistance.}
+}
+
+\newglossaryentry{millman}{
+    name={th\'eor\`eme de Millman},
+    description={Permet de calculer la tension commune \`a plusieurs branches parall\`eles aliment\'ees par diff\'erentes sources.}
+}
+
+% --- Circuits AC ---
+\newglossaryentry{phasor}{
+    name={phasor},
+    description={Repr\'esentation complexe d'une grandeur sinusoïdale en amplitude et phase.}
+}
+
+\newglossaryentry{fresnel}{
+    name={diagramme de Fresnel},
+    description={Repr\'esentation graphique des grandeurs sinusoïdales sous forme vectorielle.}
+}
+
+\newglossaryentry{resonance}{
+    name={r\'esonance},
+    description={Ph\'enom\`ene où l'imp\'edance d'un circuit RLC est minimale et le courant maximal.}
+}
+
+\newglossaryentry{facteur_qualite}{
+    name={facteur de qualit\'e $Q$},
+    description={Mesure de la s\'electivit\'e d'un circuit r\'esonant.}
+}
+
+\newglossaryentry{filtre_passe_bas}{
+    name={filtre passe-bas},
+    description={Circuit laissant passer les basses fr\'equences et att\'enuant les hautes.}
+}
+
+\newglossaryentry{filtre_passe_haut}{
+    name={filtre passe-haut},
+    description={Circuit laissant passer les hautes fr\'equences et att\'enuant les basses.}
+}
+
+\newglossaryentry{filtre_passe_bande}{
+    name={filtre passe-bande},
+    description={Circuit ne laissant passer qu'une bande de fr\'equences autour d'une fr\'equence centrale.}
+}
+
+\newglossaryentry{fonction_transfert}{
+    name={fonction de transfert $H(j\omega)$},
+    description={Rapport complexe entre la sortie et l'entr\'ee d'un syst\`eme en r\'egime sinusoïdal.}
+}
+
+% --- Transformateurs et \'electromagn\'etisme ---
+\newglossaryentry{induction}{
+    name={induction \'electromagn\'etique},
+    description={Production d'une tension dans un circuit par variation du flux magn\'etique.}
+}
+
+\newglossaryentry{flux_magnetique}{
+    name={flux magn\'etique $(\Phi)$},
+    description={Quantit\'e de champ magn\'etique traversant une surface donn\'ee.}
+}
+
+\newglossaryentry{rapport_transformation}{
+    name={rapport de transformation},
+    description={Rapport entre le nombre de spires et les tensions primaire/secondaire d'un transformateur.}
+}
+
+\newglossaryentry{rendement}{
+    name={rendement $\eta$},
+    description={Rapport entre la puissance utile et la puissance absorb\'ee d'un dispositif.}
+}
+
+\newglossaryentry{courants_foucault}{
+    name={courants de Foucault},
+    description={Courants induits dans les conducteurs soumis \`a un champ magn\'etique variable.}
+}
+
+% --- \'electronique de puissance ---
+\newglossaryentry{redressement}{
+    name={redressement},
+    description={Conversion du courant alternatif en courant continu.}
+}
+
+\newglossaryentry{filtrage}{
+    name={filtrage},
+    description={Att\'enuation des ondulations apr\`es redressement, souvent par condensateur.}
+}
+
+\newglossaryentry{regulation}{
+    name={r\'egulation de tension},
+    description={Maintien d'une tension stable malgr\'e les variations de charge ou d'entr\'ee.}
+}
+
+\newglossaryentry{pwm}{
+    name={PWM (modulation de largeur d'impulsion)},
+    description={Technique de commande consistant \`a moduler la dur\'ee d'impulsion d'un signal pour contrôler la puissance moyenne.}
+}
+
+% --- RF et hyperfr\'equences ---
+\newglossaryentry{rf}{
+    name={RF (radiofr\'equence)},
+    description={Domaine des fr\'equences sup\'erieures \`a quelques kHz jusqu'aux GHz, utilis\'e pour la communication.}
+}
+
+\newglossaryentry{hf}{
+    name={HF (haute fr\'equence)},
+    description={Bande de fr\'equences comprises entre 3 et 30 MHz.}
+}
+
+\newglossaryentry{microondes}{
+    name={micro-ondes},
+    description={Ondes \'electromagn\'etiques de fr\'equence entre 300 MHz et 300 GHz.}
+}
+
+\newglossaryentry{ligne_transmission}{
+    name={ligne de transmission},
+    description={Structure guidant une onde \'electromagn\'etique entre deux points.}
+}
+
+\newglossaryentry{guide_ondes}{
+    name={guide d'ondes},
+    description={Conduit m\'etallique destin\'e \`a guider les ondes \'electromagn\'etiques.}
+}
+
+\newglossaryentry{slti}{
+    name={Syst\`eme Lin\'eaire et Invariant dans le Temps (SLIT)},
+    description={Syst\`eme dont la r\'eponse est lin\'eaire et ind\'ependante du temps.}
+}
+
+\newglossaryentry{syntonisation}{
+    name={syntonisation},
+    description={Ajustement de deux circuits \`a la même fr\'equence de r\'esonance.}
+}
+
+\newacronym{ac_accro}{AC}{Courant alternatif}
+\newacronym{dc_accro}{DC}{Courant continu}
+\newacronym{rms_accro}{RMS}{Root Mean Square}
+\newacronym{esr_accro}{ESR}{Equivalent Series Resistance}
+\newacronym{bjt_accro}{BJT}{Bipolar Junction Transistor (transistor bipolaire)}
+\newacronym{mosfet_accro}{MOSFET}{Metal-Oxide–Semiconductor Field-Effect Transistor}
+\newacronym{pwm_accro}{PWM}{Pulse Width Modulation (modulation de largeur d'impulsion)}
+\newacronym{rf_accro}{RF}{Radiofr\'equence}
+\newacronym{hf_accro}{HF}{Haute fr\'equence}
+\newacronym{slti_accro}{SLTI}{Syst\`eme Lin\'eaire et Invariant dans le Temps}
