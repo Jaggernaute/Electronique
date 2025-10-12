@@ -232,7 +232,81 @@ Un facteur de puissance proche de \(1\) signifie un usage efficace de l’\'ener
 \end{figure}
 
 \section{Circuits RLC} \label{subsec:rlc_circuits}
-\section{Imp\'edance et r\'eactance} \label{subsec:impedance_reactance}
+\subsection{Comportement des composants en AC}
+\subsubsection{Résistance (R)}
+Une r\'esistance (not\'ee \(R\)) dans un circuit en courant alternatif se comporte de la m\^eme mani\`ere qu'en courant continu. Elle ob\'eit à la loi d'Ohm. La tension et le courant sont en phase, c'est-à-dire qu'ils atteignent leurs valeurs maximales et minimales en m\^eme temps. La relation entre la tension et le courant est donn\'ee par~:
+\[u(t) = R \cdot i(t)\]
+Son imp\'edance est purement r\'eelle et vaut \(Z = R\).
+
+\subsubsection{Inductance (L)}
+Une inductance (not\'ee \(L\)) est un composant qui stocke de l'\'energie dans un champ magn\'etique lorsqu'un courant le traverse. En courant alternatif, l'inductance oppose une r\'esistance au changement de courant, ce qui provoque un d\'ecalage de phase entre la tension et le courant. La tension à travers une inductance est donn\'ee par~:
+\[u(t) = L \frac{di(t)}{dt}\]
+Dans un circuit en AC, la tension à travers une inductance est en avance de \(\frac{\pi}{2}\) (90 degr\'es) par rapport au courant.
+L'imp\'edance d'une inductance est donn\'ee par~:
+\[Z_L = j\omega L\]
+o\`u \(\omega = 2\pi f\) est la pulsation angulaire. L'imp\'edance est purement imaginaire et positive, indiquant une r\'eactance inductive.
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	    \begin{axis}[
+            xlabel={$\omega$ (rad/s)},
+            ylabel={$|Z_L|$ ($\Omega$)},
+            xmin=0, xmax=6,
+            ymin=0, ymax=6,
+            grid=both,
+            width=10cm, height=6cm,
+            axis equal image,
+            enlargelimits=false,
+            axis line style={thick,-latex},
+            every axis y label/.style={
+                at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel,
+            },
+            every axis x label/.style={
+                at={(ticklabel cs:0.5)},anchor=near ticklabel,
+            },
+        ]
+        \addplot[domain=0:6, thick, blue] {x} node[pos=0.5, above, rotate=45] {$|Z_L| = \omega L$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Imp\'edance d'une inductance en fonction de la pulsation angulaire $\omega$.}
+    \label{fig:impedance_inductance}
+\end{figure}
+
+\subsubsection{Capacit\'e (C)}
+Un condensateur (not\'e \(C\)) est un composant qui stocke de l'\'energie dans un champ \'electrique. En courant alternatif, le condensateur permet au courant de passer plus facilement à mesure que la fr\'equence augmente, ce qui provoque un d\'ecalage de phase entre la tension et le courant. La relation entre la tension et le courant dans un condensateur est donn\'ee par~:
+\[i(t) = C \frac{du(t)}{dt}\]
+Dans un circuit en AC, le courant à travers un condensateur est en avance de \(\frac{\pi}{2}\) (90 degr\'es) par rapport à la tension.
+L'imp\'edance d'un condensateur est donn\'ee par~:
+\[Z_C = \frac{1}{j\omega C} = -j\frac{1}{\omega C}\]
+L'imp\'edance est purement imaginaire et n\'egative, indiquant une r\'eactance capacitive.
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={$\omega$ (rad/s)},
+            ylabel={$|Z_C|$ ($\Omega$)},
+            xmin=0, xmax=6,
+            ymin=0, ymax=6,
+            grid=both,
+            width=10cm, height=6cm,
+            axis equal image,
+            enlargelimits=false,
+            axis line style={thick,-latex},
+            every axis y label/.style={
+                at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel,
+            },
+            every axis x label/.style={
+                at={(ticklabel cs:0.5)},anchor=near ticklabel,
+            },
+        ]
+        \addplot[domain=0.1:6, thick, blue] {1/x} node[pos=0.85, above] {$|Z_C| = \frac{1}{\omega C}$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Imp\'edance d'un condensateur en fonction de la pulsation angulaire $\omega$.}
+    \label{fig:impedance_condensateur}
+\end{figure}
+
+
 \section{Filtres et r\'eponse en fr\'equence} \label{subsec:filters}
 \section{Transformateurs et \'electromagn\'etisme} \label{subsec:transformers}
 \section{Alimentations et \'electronique de puissance} \label{subsec:power_supplies}
