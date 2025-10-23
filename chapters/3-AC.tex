@@ -1,12 +1,12 @@
 \chapter{Th\'eorie des circuits AC} \label{subsec:ac_circuit_theory}
 
 \section{Introduction au courant alternatif} \label{subsec:intro_ac}
-Le \emph{courant alternatif} (souvent not\'e \textbf{AC} pour \emph{Alternating Current}) est un type de courant \'electrique dont l’intensit\'e et la direction varient p\'eriodiquement au cours du temps. Contrairement au courant continu (DC), où les \'electrons circulent toujours dans le même sens, le courant alternatif change de sens à intervalles r\'eguliers, g\'en\'eralement selon une forme sinuso\"idale.\par
+Le \emph{courant alternatif} (souvent not\'e \textbf{AC} pour \emph{Alternating Current}) est un type de courant \'electrique dont l’intensit\'e et la direction varient p\'eriodiquement au cours du temps. Contrairement au courant continu (DC), où les \'electrons circulent toujours dans le m\^eme sens, le courant alternatif change de sens à intervalles r\'eguliers, g\'en\'eralement selon une forme sinuso\"idale.\par
 Il est g\'en\'eralement repr\'esent\'e pas une onde sinuso\"idale~:
 \[
     u(t) = U_{max} \cdot \sin(\omega t + \phi)
 \]
-o\`u :
+o\`u~:
 \begin{itemize}
     \item $u(t)$ est la tension instantan\'ee en fonction du temps $t$,
     \item $U_{max}$ est l'amplitude maximale de la tension,
@@ -113,7 +113,7 @@ En utilisant l'identit\'e trigonom\'etrique $\sin^2(x) = \frac{1 - \cos(2x)}{2}$
 \int_{T_1}^{T_2} \sin^2(\omega t)\, dt = \frac{1}{2}(T_2 - T_1)
 \]
 puisque l’int\'egrale du terme $\cos(2\omega t)$ sur une p\'eriode compl\`ete est nulle.
-Ainsi :
+Ainsi~:
 \[
 U_{\text{eff}} = U_{\text{max}} \sqrt{\frac{1}{T_2 - T_1} \cdot \frac{T_2 - T_1}{2}} = \frac{U_{\text{max}}}{\sqrt{2}}
 \]
@@ -126,15 +126,15 @@ Pour une onde triangulaire, la valeur efficace est donn\'ee par~:
 
 \subsection{Puissance en AC}
 La puissance dans un circuit en courant alternatif d\'epend non seulement de la tension et du courant, mais aussi du d\'ephasage $\phi$ entre eux.
-La tension et le courant peuvent être exprim\'es sous forme sinuso\"idale :
+La tension et le courant peuvent \^etre exprim\'es sous forme sinuso\"idale~:
 \[
 u(t) = U_{\text{max}} \sin(\omega t), \quad i(t) = I_{\text{max}} \sin(\omega t - \phi)
 \]
-La puissance instantan\'ee vaut alors :
+La puissance instantan\'ee vaut alors~:
 \[
 p(t) = u(t) \cdot i(t) = U_{\text{max}} I_{\text{max}} \sin(\omega t)\sin(\omega t - \phi)
 \]
-En utilisant l'identit\'e trigonom\'etrique $\sin A \sin B = \tfrac{1}{2}[\cos(A - B) - \cos(A + B)]$, on obtient :
+En utilisant l'identit\'e trigonom\'etrique $\sin A \sin B = \tfrac{1}{2}[\cos(A - B) - \cos(A + B)]$, on obtient~:
 \[
 p(t) = \frac{U_{\text{max}} I_{\text{max}}}{2} [\cos(\phi) - \cos(2\omega t - \phi)]
 \]
@@ -142,19 +142,19 @@ La puissance instantan\'ee est donc constitu\'ee d’un terme constant et d’un
 
 \begin{Note}{\textbf{Puissance moyenne (active)}}\\
 Le terme oscillant $\cos(2\omega t - \phi)$ a une moyenne nulle sur une p\'eriode complète.
-La puissance moyenne (ou puissance active) est donc :
+La puissance moyenne (ou puissance active) est donc~:
 \[
 P = \frac{U_{\text{max}} I_{\text{max}}}{2} \cos(\phi)
 \]
-En exprimant les grandeurs en valeurs efficaces :
+En exprimant les grandeurs en valeurs efficaces~:
 \[
 U_{\text{eff}} = \frac{U_{\text{max}}}{\sqrt{2}}, \quad I_{\text{eff}} = \frac{I_{\text{max}}}{\sqrt{2}}
 \]
-on obtient la relation fondamentale :
+on obtient la relation fondamentale~:
 \[
 \boxed{P = U_{\text{eff}} \cdot I_{\text{eff}} \cdot \cos(\phi)}
 \]
-où :
+où~:
 \begin{itemize}
     \item $P$ est la puissance active (en watts, W),
     \item $U_{\text{eff}}$ est la tension efficace (en volts, V),
@@ -164,7 +164,7 @@ où :
 \end{Note}
 
 \subsubsection*{Les diff\'erentes puissances en r\'egime alternatif}
-On distingue trois formes de puissance :
+On distingue trois formes de puissance~:
 \begin{itemize}
     \item \textbf{Puissance apparente}~:
     \[
@@ -185,12 +185,12 @@ On distingue trois formes de puissance :
     Elle repr\'esente l’\'energie \'echang\'ee p\'eriodiquement entre les champs \'electrique et magn\'etique des composants r\'eactifs (bobines et condensateurs).
 \end{itemize}
 
-Ces trois puissances sont li\'ees par la relation :
+Ces trois puissances sont li\'ees par la relation~:
 \[
 S^2 = P^2 + Q^2
 \]
-et peuvent être repr\'esent\'ees sous forme d’un \textbf{triangle des puissances}.
-Le \emph{facteur de puissance}, not\'e $\cos(\phi)$, indique la part de puissance r\'eellement utilis\'ee par le circuit :
+et peuvent \^etre repr\'esent\'ees sous forme d’un \textbf{triangle des puissances}.
+Le \emph{facteur de puissance}, not\'e $\cos(\phi)$, indique la part de puissance r\'eellement utilis\'ee par le circuit~:
 \[
 \text{Facteur de puissance} = \frac{P}{S} = \cos(\phi)
 \]
@@ -227,86 +227,42 @@ Un facteur de puissance proche de \(1\) signifie un usage efficace de l’\'ener
   \node at (axis cs:1.5,0.5) {\small $\cos\phi = \dfrac{P}{S}$};
   \end{axis}
 \end{tikzpicture}
-\caption{Triangle des puissances en r\'egime alternatif : relation entre $P$, $Q$ et $S$.}
+\caption{Triangle des puissances en r\'egime alternatif~: relation entre $P$, $Q$ et $S$.}
 \label{fig:triangle_puissances}
 \end{figure}
 
 \section{Circuits RLC} \label{subsec:rlc_circuits}
+
 \subsection{Comportement des composants en AC}
-\subsubsection{Résistance (R)}
-Une r\'esistance (not\'ee \(R\)) dans un circuit en courant alternatif se comporte de la m\^eme mani\`ere qu'en courant continu. Elle ob\'eit à la loi d'Ohm. La tension et le courant sont en phase, c'est-à-dire qu'ils atteignent leurs valeurs maximales et minimales en m\^eme temps. La relation entre la tension et le courant est donn\'ee par~:
-\[u(t) = R \cdot i(t)\]
-Son imp\'edance est purement r\'eelle et vaut \(Z = R\).
 
-\subsubsection{Inductance (L)}
-Une inductance (not\'ee \(L\)) est un composant qui stocke de l'\'energie dans un champ magn\'etique lorsqu'un courant le traverse. En courant alternatif, l'inductance oppose une r\'esistance au changement de courant, ce qui provoque un d\'ecalage de phase entre la tension et le courant. La tension à travers une inductance est donn\'ee par~:
-\[u(t) = L \frac{di(t)}{dt}\]
-Dans un circuit en AC, la tension à travers une inductance est en avance de \(\frac{\pi}{2}\) (90 degr\'es) par rapport au courant.
-L'imp\'edance d'une inductance est donn\'ee par~:
-\[Z_L = j\omega L\]
-o\`u \(\omega = 2\pi f\) est la pulsation angulaire. L'imp\'edance est purement imaginaire et positive, indiquant une r\'eactance inductive.
-\begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	    \begin{axis}[
-            xlabel={$\omega$ (rad/s)},
-            ylabel={$|Z_L|$ ($\Omega$)},
-            xmin=0, xmax=6,
-            ymin=0, ymax=6,
-            grid=both,
-            width=10cm, height=6cm,
-            axis equal image,
-            enlargelimits=false,
-            axis line style={thick,-latex},
-            every axis y label/.style={
-                at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel,
-            },
-            every axis x label/.style={
-                at={(ticklabel cs:0.5)},anchor=near ticklabel,
-            },
-        ]
-        \addplot[domain=0:6, thick, blue] {x} node[pos=0.5, above, rotate=45] {$|Z_L| = \omega L$};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Imp\'edance d'une inductance en fonction de la pulsation angulaire $\omega$.}
-    \label{fig:impedance_inductance}
-\end{figure}
-
-\subsubsection{Capacit\'e (C)}
-Un condensateur (not\'e \(C\)) est un composant qui stocke de l'\'energie dans un champ \'electrique. En courant alternatif, le condensateur permet au courant de passer plus facilement à mesure que la fr\'equence augmente, ce qui provoque un d\'ecalage de phase entre la tension et le courant. La relation entre la tension et le courant dans un condensateur est donn\'ee par~:
-\[i(t) = C \frac{du(t)}{dt}\]
-Dans un circuit en AC, le courant à travers un condensateur est en avance de \(\frac{\pi}{2}\) (90 degr\'es) par rapport à la tension.
-L'imp\'edance d'un condensateur est donn\'ee par~:
-\[Z_C = \frac{1}{j\omega C} = -j\frac{1}{\omega C}\]
-L'imp\'edance est purement imaginaire et n\'egative, indiquant une r\'eactance capacitive.
+\subsubsection{R\'esistance (R)}
+Une r\'esistance dans un circuit en courant alternatif se comporte de la m\^eme manière qu'en courant continu \Cref{subsec:resistors}. Elle ob\'eit à la loi d'Ohm~:
+\[
+u(t) = R \cdot i(t)
+\]
+La tension et le courant sont en phase \Cref{fig:R_phase}, atteignant leurs valeurs maximales simultan\'ement. L'imp\'edance est purement r\'eelle~:
+\[
+Z_R = R
+\]
 \begin{figure}[h!]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            xlabel={$\omega$ (rad/s)},
-            ylabel={$|Z_C|$ ($\Omega$)},
-            xmin=0, xmax=6,
-            ymin=0, ymax=6,
+            xlabel={Temps (s)},
+            ylabel={Amplitude},
             grid=both,
-            width=10cm, height=6cm,
-            axis equal image,
-            enlargelimits=false,
-            axis line style={thick,-latex},
-            every axis y label/.style={
-                at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel,
-            },
-            every axis x label/.style={
-                at={(ticklabel cs:0.5)},anchor=near ticklabel,
-            },
+            width=10cm,
+            height=6cm,
+            legend style={at={(0.98,0.98)},anchor=north east},
         ]
-        \addplot[domain=0.1:6, thick, blue] {1/x} node[pos=0.85, above] {$|Z_C| = \frac{1}{\omega C}$};
+        \addplot[domain=0:2*pi,samples=100,blue,thick]{sin(deg(x))};
+        \addlegendentry{Tension $u(t)$}
+        \addplot[domain=0:2*pi,samples=100,red,dashed,thick]{sin(deg(x))};
+        \addlegendentry{Courant $i(t)$}
         \end{axis}
     \end{tikzpicture}
-    \caption{Imp\'edance d'un condensateur en fonction de la pulsation angulaire $\omega$.}
-    \label{fig:impedance_condensateur}
+    \caption{R\'esistance~: tension et courant en phase.}
+    \label{fig:R_phase}
 \end{figure}
 
-
-\section{Filtres et r\'eponse en fr\'equence} \label{subsec:filters}
-\section{Transformateurs et \'electromagn\'etisme} \label{subsec:transformers}
-\section{Alimentations et \'electronique de puissance} \label{subsec:power_supplies}
+\subsubsection{Inductance (L)}
